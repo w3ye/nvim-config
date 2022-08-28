@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use 'kyazdani42/nvim-web-devicons'
   use 'tpope/vim-surround'
-  use 'prettier/vim-prettier'
+  -- use 'prettier/vim-prettier'
   use 'safv12/andromeda.vim'
   use 'nvim-treesitter/nvim-treesitter'
   use {
