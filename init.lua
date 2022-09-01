@@ -33,7 +33,7 @@ vim.opt.hlsearch = false
 vim.cmd([[colorscheme nightfox]])
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- vim.cmd [[autocmd BufWritePre *.tsx, *.ts, *.jsx, *.js EslintFixAll]]
 vim.cmd([[syntax enable]])
 
@@ -61,6 +61,6 @@ vim.keymap.set("i", "<C-e>", "<Nop>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
