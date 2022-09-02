@@ -52,7 +52,7 @@ lualine.setup({
     lualine_x = {
       {
         'lsp_progress',
-        display_components = { 'lsp_client_name', { 'percentage' } },
+        display_components = { 'lsp_client_name' },
       },
       {
         "diff",

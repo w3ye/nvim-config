@@ -1,8 +1,6 @@
-require("lsp.lsp")
 require("plugins")
-require("autocomplete")
+-- require("autocomplete")
 require("lsp.treesitter")
--- require("lsp.null-ls")
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -33,7 +31,7 @@ vim.opt.hlsearch = false
 vim.cmd([[colorscheme nightfox]])
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- vim.cmd [[autocmd BufWritePre *.tsx, *.ts, *.jsx, *.js EslintFixAll]]
 vim.cmd([[syntax enable]])
 

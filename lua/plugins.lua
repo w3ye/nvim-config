@@ -75,17 +75,6 @@ require("packer").startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
     },
-    -- config = {
-    -- 	function()
-    -- 		require("null-ls").setup({
-    -- 			sources = {
-    -- 				require("null-ls").builtins.formatting.stylua,
-    -- 				require("null-ls").builtins.diagnostics.eslint,
-    -- 				require("null-ls").builtins.completion.spell,
-    -- 			},
-    -- 		})
-    -- 	end,
-    -- },
   })
   use 'arkav/lualine-lsp-progress'
 end)
