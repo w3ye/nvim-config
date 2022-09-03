@@ -38,7 +38,12 @@ require("packer").startup(function(use)
     end,
   })
   use("EdenEast/nightfox.nvim")
-  use("jiangmiao/auto-pairs")
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require('nvim-autopairs').setup()
+    end
+  })
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -77,4 +82,5 @@ require("packer").startup(function(use)
     },
   })
   use 'arkav/lualine-lsp-progress'
+  use 'nvim-treesitter/nvim-treesitter-context'
 end)

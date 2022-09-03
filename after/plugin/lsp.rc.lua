@@ -17,7 +17,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { buffer = 0 })
   vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
 
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set("n", "<space>wl", function()
