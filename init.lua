@@ -1,5 +1,4 @@
 require("plugins")
--- require("autocomplete")
 require("lsp.treesitter")
 
 vim.opt.expandtab = true
@@ -35,6 +34,11 @@ vim.cmd([[set updatetime=100]])
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- vim.cmd [[autocmd BufWritePre *.tsx, *.ts, *.jsx, *.js EslintFixAll]]
 vim.cmd([[syntax enable]])
+vim.cmd([[
+let g:blamer_enabled = 1
+let g:blamer_template = '<committer> • <summary>, <committer-time>'
+let g:blamer_relative_time = 1
+]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true<cr>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")

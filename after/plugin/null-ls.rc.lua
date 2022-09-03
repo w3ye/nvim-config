@@ -13,6 +13,7 @@ null_ls.setup({
   sources = {
     formatting.stylua,
     formatting.prettier.with({ extra_params = { "--single-quote" } }),
+    formatting.gofmt,
     diagnostics.eslint,
     cmp.spell,
   },
