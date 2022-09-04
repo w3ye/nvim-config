@@ -1,5 +1,5 @@
 require("plugins")
-require("lsp.treesitter")
+require("startify_config")
 
 vim.opt.expandtab = true
 -- vim.opt.tabstop =4
