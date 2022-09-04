@@ -78,6 +78,11 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 
+
+vim.keymap.set("n", "<leader>wa", "<cmd>WorkspacesAdd<cr>")
+vim.keymap.set("n", "<leader>wo", "<cmd>Telescope workspaces<cr>")
+vim.keymap.set("n", "<leader>wrm", "<cmd>WorkspacesRemove<cr>")
+
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 

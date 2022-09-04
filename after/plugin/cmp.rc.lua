@@ -42,8 +42,7 @@ cmp.setup({
   -- disable completion during comments
   enabled = function()
     local context = require("cmp.config.context")
-    if vim.api.nvim_get_mode().mode == "c" or vim.api.nvim_buf_get_option == "prompt" or
-        vim.bo.filetype == "TelescopePrompt" then
+    if vim.api.nvim_get_mode().mode == "c" or vim.api.nvim_buf_get_option(0, 'buftype') == ("prompt" or "nofile") then
       return true
     else
       return not context.in_treesitter_capture("comment") and not context.in_syntax_group("comment")

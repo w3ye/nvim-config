@@ -88,5 +88,7 @@ require("packer").startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'onsails/lspkind.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use "natecraddock/workspaces.nvim"
+  use "natecraddock/sessions.nvim"
 end
 )
