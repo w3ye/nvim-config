@@ -29,6 +29,19 @@ vim.opt.hlsearch = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
+-- code folding
+vim.opt.foldlevel = 20
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.api.nvim_create_autocmd('BufRead', {
+  callback = function()
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      once = true,
+      command = 'normal! zx'
+    })
+  end
+})
+
 vim.cmd([[colorscheme nightfox]])
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
@@ -80,4 +93,13 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = true,
+})
+
+vim.api.nvim_create_autocmd('BufRead', {
+  callback = function()
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      once = true,
+      command = 'normal! zx'
+    })
+  end
 })
