@@ -1,7 +1,8 @@
 local actions = require("telescope.actions")
 
 local telescope = require("telescope")
-telescope.load_extension("workspaces")
+-- telescope.load_extension("workspaces")
+telescope.load_extension("projects")
 
 telescope.setup {
   defaults = {
@@ -13,8 +14,8 @@ telescope.setup {
     },
   },
   extensions = {
-    workspaces = {
-      keep_insert = true,
-    }
+    -- workspaces = {
+    --   keep_insert = true,
+    -- }
   }
 }

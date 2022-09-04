@@ -88,8 +88,7 @@ require("packer").startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'onsails/lspkind.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use "natecraddock/workspaces.nvim"
-  use "natecraddock/sessions.nvim"
+  use "ahmedkhalf/project.nvim"
   -- Lua tab out
   use {
     'abecodes/tabout.nvim',
@@ -118,5 +117,7 @@ require("packer").startup(function(use)
     wants = { 'nvim-treesitter' }, -- or require if not used so far
     after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
   }
+  use "mhinz/vim-startify"
+  use "MattesGroeger/vim-bookmarks"
 end
 )

@@ -1,12 +1,12 @@
-local ok, workspaces = pcall(require, "workspaces")
+local ok, project = pcall(require, "project_nvim")
 if not ok then
   return
 end
 
-workspaces.setup({
-  hooks = {
-    open = function()
-      require('sessions').load(nil, { silent = true })
-    end,
-  }
+project.setup({
+  -- hooks = {
+  --   open = function()
+  --     require('sessions').load(nil, { silent = true })
+  --   end,
+  -- }
 })
