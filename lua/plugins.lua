@@ -38,6 +38,9 @@ require("packer").startup(function(use)
     end,
   })
   use("EdenEast/nightfox.nvim")
+  use("olivercederborg/poimandres.nvim")
+  use("folke/tokyonight.nvim")
+  use("Everblush/everblush.nvim")
   use({
     "windwp/nvim-autopairs",
     config = function()

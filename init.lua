@@ -42,7 +42,12 @@ vim.api.nvim_create_autocmd('BufRead', {
   end
 })
 
-vim.cmd([[colorscheme nightfox]])
+vim.cmd([[colorscheme everblush]])
+vim.cmd([[
+hi linenr guifg=#59666b
+hi cursorlinenr guifg=#59666b
+]])
+
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
@@ -93,13 +98,4 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = true,
-})
-
-vim.api.nvim_create_autocmd('BufRead', {
-  callback = function()
-    vim.api.nvim_create_autocmd('BufWinEnter', {
-      once = true,
-      command = 'normal! zx'
-    })
-  end
 })
