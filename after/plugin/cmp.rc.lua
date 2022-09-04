@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -41,19 +42,32 @@ cmp.setup({
   -- disable completion during comments
   enabled = function()
     local context = require("cmp.config.context")
-    if vim.api.nvim_get_mode().mode == "c" or vim.api.nvim_buf_get_option == "prompt" then
+    if vim.api.nvim_get_mode().mode == "c" or vim.api.nvim_buf_get_option == "prompt" or
+        vim.bo.filetype == "TelescopePrompt" then
       return true
     else
       return not context.in_treesitter_capture("comment") and not context.in_syntax_group("comment")
     end
   end,
 
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      menu = ({
+        buffer = "[buffer]",
+        nvim_lsp = "[lsp]",
+        luasnip = "[lua_snip]"
+      })
+    })
+  },
+
   sources = cmp.config.sources({
     { name = "luasnip", options = { use_show_condition = false } }, -- For luasnip users.
     { name = "nvim_lsp" },
     { name = "path" },
   }, {
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer", keyword_length = 3 },
   }),
   experimental = { ghost_text = true },
 })

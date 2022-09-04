@@ -2,9 +2,9 @@ require("plugins")
 require("lsp.treesitter")
 
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+-- vim.opt.tabstop =4
+-- vim.opt.softtabstop = 4
+-- vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
 vim.opt.nu = true
@@ -27,6 +27,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hlsearch = false
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 vim.cmd([[colorscheme nightfox]])
 vim.g.mapleader = " "
@@ -35,18 +36,21 @@ vim.cmd([[set updatetime=100]])
 -- vim.cmd [[autocmd BufWritePre *.tsx, *.ts, *.jsx, *.js EslintFixAll]]
 vim.cmd([[syntax enable]])
 vim.cmd([[
-let g:blamer_enabled = 1
 let g:blamer_template = '<committer> • <summary>, <committer-time>'
 let g:blamer_relative_time = 1
 ]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true<cr>")
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
+vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
+vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>FHT", "<cmd>Telescope help_tags<cr>")
-vim.keymap.set("n", "<leader>T", "<cmd>Neotree toggle<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle<cr>")
 vim.keymap.set("n", "Y", "yy")
-vim.keymap.set("n", "<F3>", "<cmd>:set hlsearch!<cr>")
-vim.keymap.set("n", "<F2>", "<cmd>:set relativenumber!<cr>")
+vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
+vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
+vim.keymap.set("n", "<F4>", "<cmd>BlamerToggle<cr>")
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -68,3 +72,12 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+-- diagnostic settings
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})

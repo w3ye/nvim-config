@@ -83,4 +83,7 @@ require("packer").startup(function(use)
   })
   use 'arkav/lualine-lsp-progress'
   use 'nvim-treesitter/nvim-treesitter-context'
-end)
+  use 'onsails/lspkind.nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+end
+)
