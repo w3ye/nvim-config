@@ -85,7 +85,7 @@ vim.keymap.set("n", "<leader>mn", "<cmd>FocusSplitNicely<cr>", { silent = true }
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
-vim.keymap.set("n", "<leader>W", "<cmd>wq<cr>")
+vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
 vim.keymap.set("n", "<leader>so", "<cmd>Startify<cr>")
 vim.keymap.set("n", "<leader>gp", "<cmd>G push<cr>")
 vim.keymap.set("n", "<leader>gf", "<cmd>G pull<cr>")
