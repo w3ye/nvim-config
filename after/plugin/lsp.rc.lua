@@ -126,3 +126,19 @@ require("lspconfig").sumneko_lua.setup({
     },
   },
 })
+
+require("lspconfig").cssls.setup({
+  on_attach = function(client, bufnr)
+    -- formatting_callback(client, bufnr)
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+})
+
+require 'lspconfig'.html.setup {
+  on_attach = function(client, bufnr)
+    -- formatting_callback(client, bufnr)
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+}
