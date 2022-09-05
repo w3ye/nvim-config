@@ -84,9 +84,15 @@ vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaxOrEqual<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mn", "<cmd>FocusSplitNicely<cr>", { silent = true })
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+vim.keymap.set("n", "<leader>W", "<cmd>wq<cr>")
+vim.keymap.set("n", "<leader>so", "<cmd>Startify<cr>")
+vim.keymap.set("n", "<leader>gp", "<cmd>G push<cr>")
+vim.keymap.set("n", "<leader>gf", "<cmd>G pull<cr>")
 
 
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>")
+vim.keymap.set("n", "<leader>P", "<cmd>ProjectRoot<cr>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -109,3 +115,10 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
 })
+
+-- remember last position in file
+vim.cmd([[
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+]])
