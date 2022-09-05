@@ -48,6 +48,7 @@ vim.cmd([[colorscheme everblush]])
 vim.cmd([[
 hi linenr guifg=#59666b
 hi cursorlinenr guifg=#59666b
+hi DiffText guibg=#253f4a
 ]])
 
 vim.g.mapleader = " "
@@ -69,27 +70,42 @@ vim.keymap.set("n", "<leader>FHT", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>xf", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xQ", "<cmd>TodoQuickFix<cr>")
+
 vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle filesystem reveal left<cr>")
+
 vim.keymap.set("n", "Y", "yy")
+-- toggles
 vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
 vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
 vim.keymap.set("n", "<F4>", "<cmd>BlamerToggle<cr>")
+
+-- pressing tab in normal mode split buffers
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
+
 vim.keymap.set("n", "<C-h>", "<cmd>FocusSplitLeft<cr>", { silent = true })
 vim.keymap.set("n", "<C-j>", "<cmd>FocusSplitDown<cr>", { silent = true })
 vim.keymap.set("n", "<C-k>", "<cmd>FocusSplitUp<cr>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>FocusSplitRight<cr>", { silent = true })
-vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaxOrEqual<cr>", { silent = true })
-vim.keymap.set("n", "<leader>mn", "<cmd>FocusSplitNicely<cr>", { silent = true })
+vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
+vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
+vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })
+
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
-vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
 vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
 vim.keymap.set("n", "<leader><C-q>", "<cmd>wqa<cr>")
+
+vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+
 vim.keymap.set("n", "<leader>so", "<cmd>Startify<cr>")
+
 vim.keymap.set("n", "<leader>gp", "<cmd>G push<cr>")
 vim.keymap.set("n", "<leader>gf", "<cmd>G pull<cr>")
+
+vim.keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
+vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory %<cr>")
 
 
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>")
