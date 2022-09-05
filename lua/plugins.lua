@@ -127,5 +127,11 @@ require('packer').startup(function(use)
   use "folke/todo-comments.nvim"
   use "beauwilliams/focus.nvim"
   use "mg979/vim-visual-multi"
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end
+  })
 end
 )
