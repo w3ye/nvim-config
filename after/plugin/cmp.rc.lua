@@ -2,6 +2,10 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require('lspkind')
 
+local has_disabled_cmp = vim.api.nvim_get_mode().mode == "c" or
+    vim.api.nvim_buf_get_option(0, 'buftype') == ("prompt" or "nofile")
+    or vim.bo.filetype == "gitcommit"
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -42,9 +46,7 @@ cmp.setup({
   -- disable completion during comments
   enabled = function()
     local context = require("cmp.config.context")
-    if vim.api.nvim_get_mode().mode == "c"
-        or vim.api.nvim_buf_get_option(0, 'buftype') == ("prompt" or "nofile")
-        or vim.bo.filetype == "gitcommit" then
+    if has_disabled_cmp then
       return false
     else
       return not context.in_treesitter_capture("comment") and not context.in_syntax_group("comment")
@@ -64,8 +66,8 @@ cmp.setup({
   },
 
   sources = cmp.config.sources({
-    { name = "luasnip", options = { use_show_condition = false } }, -- For luasnip users.
     { name = "nvim_lsp" },
+    { name = "luasnip", options = { use_show_condition = false } }, -- For luasnip users.
     { name = "path" },
   }, {
     { name = "buffer", keyword_length = 3 },
