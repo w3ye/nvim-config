@@ -1,6 +1,6 @@
 -- vim.cmd [[packadd packer.vim]]
 
-require("packer").startup(function(use)
+require('packer').startup(function(use)
   use("wbthomason/packer.nvim")
   use({
     "neovim/nvim-lspconfig",
@@ -26,7 +26,11 @@ require("packer").startup(function(use)
   use("tpope/vim-surround")
   -- use 'prettier/vim-prettier'
   use("safv12/andromeda.vim")
-  use("nvim-treesitter/nvim-treesitter")
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
+  use "JoosepAlviste/nvim-ts-context-commentstring"
   use({
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
@@ -37,7 +41,7 @@ require("packer").startup(function(use)
       require("gitsigns").setup()
     end,
   })
-  use("EdenEast/nightfox.nvim")
+  use({ "EdenEast/nightfox.nvim" })
   use("olivercederborg/poimandres.nvim")
   use("folke/tokyonight.nvim")
   use("Everblush/everblush.nvim")
@@ -119,5 +123,9 @@ require("packer").startup(function(use)
   }
   use "mhinz/vim-startify"
   use "MattesGroeger/vim-bookmarks"
+  use "folke/trouble.nvim"
+  use "folke/todo-comments.nvim"
+  use "beauwilliams/focus.nvim"
+  use "mg979/vim-visual-multi"
 end
 )

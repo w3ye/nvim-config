@@ -2,9 +2,9 @@ require("plugins")
 require("startify_config")
 
 vim.opt.expandtab = true
--- vim.opt.tabstop =4
--- vim.opt.softtabstop = 4
--- vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 
 vim.opt.nu = true
@@ -42,7 +42,9 @@ vim.api.nvim_create_autocmd('BufRead', {
   end
 })
 
+-- vim.cmd([[colorscheme nightfox]])
 vim.cmd([[colorscheme everblush]])
+-- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
 hi cursorlinenr guifg=#59666b
@@ -64,6 +66,9 @@ vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>FHT", "<cmd>Telescope help_tags<cr>")
+vim.keymap.set("n", "<leader>xf", "<cmd>TodoTelescope<cr>")
+vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
+vim.keymap.set("n", "<leader>xQ", "<cmd>TodoQuickFix<cr>")
 vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle filesystem reveal left<cr>")
 vim.keymap.set("n", "Y", "yy")
 vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
@@ -71,10 +76,12 @@ vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
 vim.keymap.set("n", "<F4>", "<cmd>BlamerToggle<cr>")
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<cmd>FocusSplitLeft<cr>", { silent = true })
+vim.keymap.set("n", "<C-j>", "<cmd>FocusSplitDown<cr>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<cmd>FocusSplitUp<cr>", { silent = true })
+vim.keymap.set("n", "<C-l>", "<cmd>FocusSplitRight<cr>", { silent = true })
+vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaxOrEqual<cr>", { silent = true })
+vim.keymap.set("n", "<leader>mn", "<cmd>FocusSplitNicely<cr>", { silent = true })
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 
