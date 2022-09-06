@@ -62,6 +62,7 @@ let g:blamer_relative_time = 1
 ]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true<cr>")
+vim.keymap.set("n", "<leader><C-f>", "<cmd>FZF<cr>")
 vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
