@@ -133,5 +133,18 @@ require('packer').startup(function(use)
       require("nvim-ts-autotag").setup()
     end
   })
+  use "xiyaowong/nvim-cursorword"
+  use "p00f/nvim-ts-rainbow"
+  use({
+    "ggandor/leap.nvim",
+    requires = "tpope/vim-repeat"
+  })
+  use({
+    "echasnovski/mini.nvim",
+    config = function()
+      require('mini.jump').setup()
+    end
+  })
+  use "AckslD/nvim-trevJ.lua"
 end
 )

@@ -27,19 +27,19 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hlsearch = false
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- code folding
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.api.nvim_create_autocmd('BufRead', {
-  callback = function()
-    vim.api.nvim_create_autocmd('BufWinEnter', {
-      once = true,
-      command = 'normal! zx'
-    })
-  end
+vim.api.nvim_create_autocmd("BufRead", {
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "normal! zx",
+		})
+	end,
 })
 
 -- vim.cmd([[colorscheme nightfox]])
@@ -107,9 +107,10 @@ vim.keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
 vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
 vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory %<cr>")
 
-
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>")
 vim.keymap.set("n", "<leader>P", "<cmd>ProjectRoot<cr>")
+
+vim.keymap.set("n", "<leader>J", "<cmd>require('trevj').format_at_cursor()<cr>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -120,17 +121,17 @@ vim.keymap.set("i", "<C-e>", "<Nop>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- diagnostic settings
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
+	virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
 })
 
 -- remember last position in file
@@ -138,4 +139,8 @@ vim.cmd([[
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+]])
+vim.cmd([[
+hi CursorWord cterm=none gui=none guibg=#363838
+let g:cursorword_disable_filetypes = ["TelescopePrompt", "neo-tree"]
 ]])
