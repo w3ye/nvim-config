@@ -1,2 +1,3 @@
 .git/
 .editorconfig
+plugin/packer_compiled.lua
