@@ -2,9 +2,9 @@ require("plugins")
 require("startify_config")
 
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
 vim.opt.nu = true
@@ -16,6 +16,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.autochdir = true
 
 vim.opt.scrolloff = 8
 vim.opt.wrap = true
@@ -61,18 +62,18 @@ let g:blamer_template = '<committer> • <summary>, <committer-time>'
 let g:blamer_relative_time = 1
 ]])
 
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true<cr>")
+vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true no-ignore=true<cr>")
 vim.keymap.set("n", "<leader><C-f>", "<cmd>FZF<cr>")
-vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
+vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep hidde=true no_ignore=true<cr>")
+vim.keymap.set("n", "<leader>sg", "<cmd>Telescope grep_string hidd=true no_ignore=true<cr>")
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>FHT", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>xf", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
-vim.keymap.set("n", "<leader>xQ", "<cmd>TodoQuickFix<cr>")
+vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
 
-vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle filesystem reveal left<cr>")
+vim.keymap.set("n", "<leader>T", "<cmd>Neotree toggle filesystem reveal left<cr>")
 
 vim.keymap.set("n", "Y", "yy")
 -- toggles
