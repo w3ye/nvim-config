@@ -136,12 +136,7 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--- remember last position in file
-vim.cmd([[
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-]])
+-- same word highlighting
 vim.cmd([[
 hi CursorWord cterm=none gui=none guibg=#363838
 let g:cursorword_disable_filetypes = ["TelescopePrompt", "neo-tree"]

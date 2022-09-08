@@ -147,4 +147,20 @@ require("packer").startup(function(use)
 	})
 	use("AckslD/nvim-trevJ.lua")
 	use("junegunn/fzf")
+	use({
+		"ethanholz/nvim-lastplace",
+		config = function()
+			require("nvim-lastplace").setup({
+				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+				lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
+				lastplace_open_folds = true,
+			})
+		end,
+	})
+	use({
+		"ray-x/go.nvim",
+		config = function()
+			require("go").setup()
+		end,
+	})
 end)
