@@ -62,10 +62,10 @@ let g:blamer_template = '<committer> • <summary>, <committer-time>'
 let g:blamer_relative_time = 1
 ]])
 
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown hidden=true no-ignore=true<cr>")
+vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
 vim.keymap.set("n", "<leader><C-f>", "<cmd>FZF<cr>")
-vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep hidde=true no_ignore=true<cr>")
-vim.keymap.set("n", "<leader>sg", "<cmd>Telescope grep_string hidd=true no_ignore=true<cr>")
+vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>FHT", "<cmd>Telescope help_tags<cr>")
@@ -79,7 +79,7 @@ vim.keymap.set("n", "Y", "yy")
 -- toggles
 vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
 vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
-vim.keymap.set("n", "<F4>", "<cmd>BlamerToggle<cr>")
+vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
