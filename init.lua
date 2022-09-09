@@ -93,6 +93,8 @@ vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
 vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })
 
+vim.keymap.set("n", "<C-p>", "<cmd>YankyRingHistory<cr>", { silent = true })
+
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
 vim.keymap.set("n", "<leader><C-q>", "<cmd>wqa<cr>")

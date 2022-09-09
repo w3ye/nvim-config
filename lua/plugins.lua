@@ -163,4 +163,10 @@ require("packer").startup(function(use)
 			require("go").setup()
 		end,
 	})
+	use({
+		"gbprod/yanky.nvim",
+		config = function()
+			require("yanky").setup({})
+		end,
+	})
 end)
