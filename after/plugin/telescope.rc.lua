@@ -14,26 +14,29 @@ table.insert(vimgrep_arguments, "!.git/*")
 table.insert(vimgrep_arguments, "--no-ignore")
 
 telescope.setup({
-	defaults = {
-		vimgrep_arguments = vimgrep_arguments,
-		mappings = {
-			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
-				["<C-t>"] = trouble.open_with_trouble,
-				["<C-d>"] = actions.delete_buffer,
-				["<C-u>"] = false,
-			},
-			n = {
-				["<C-t>"] = trouble.open_with_trouble,
-				["<C-d>"] = actions.delete_buffer,
-			},
-		},
-	},
+    defaults = {
+        vimgrep_arguments = vimgrep_arguments,
+        mappings = {
+            i = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-t>"] = trouble.open_with_trouble,
+                ["<C-d>"] = actions.delete_buffer,
+                ["<C-u>"] = false,
+            },
+            n = {
+                ["<C-t>"] = trouble.open_with_trouble,
+                ["<C-d>"] = actions.delete_buffer,
+            },
+        },
+        file_ignore_patterns = {
+            "node_modules",
+        },
+    },
 
-	pickers = {
-		find_files = {
-			find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/*" },
-		},
-	},
+    pickers = {
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/*" },
+        },
+    },
 })
