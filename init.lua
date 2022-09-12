@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader>xf", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
 
-vim.keymap.set("n", "<leader>T", "<cmd>Neotree toggle filesystem reveal left<cr>")
+vim.keymap.set("n", "<leader>T", "<cmd>NvimTreeFindFileToggle<cr>")
 
 vim.keymap.set("n", "Y", "yy")
 -- toggles
@@ -84,10 +84,15 @@ vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
 
-vim.keymap.set("n", "<C-h>", "<cmd>FocusSplitLeft<cr>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<cmd>FocusSplitDown<cr>", { silent = true })
-vim.keymap.set("n", "<C-k>", "<cmd>FocusSplitUp<cr>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<cmd>FocusSplitRight<cr>", { silent = true })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
+
+vim.keymap.set("n", "<C-H>", "<cmd>FocusSplitLeft<cr>", { silent = true })
+vim.keymap.set("n", "<C-J>", "<cmd>FocusSplitDown<cr>", { silent = true })
+vim.keymap.set("n", "<C-K>", "<cmd>FocusSplitUp<cr>", { silent = true })
+vim.keymap.set("n", "<C-L>", "<cmd>FocusSplitRight<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
 vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })

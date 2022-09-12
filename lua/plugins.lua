@@ -15,7 +15,7 @@ require("packer").startup(function(use)
 		{
 			"L3MON4D3/LuaSnip",
 			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
+				require("luasnip.loaders.from_vscode").lazy_load({ paths = { "../snippets/" } })
 			end,
 		},
 		"saadparwaiz1/cmp_luasnip",
@@ -66,10 +66,7 @@ require("packer").startup(function(use)
 	})
 	use("tpope/vim-fugitive")
 	use({
-		"nvim-neo-tree/neo-tree.nvim",
-		requires = {
-			"MunifTanjim/nui.nvim",
-		},
+		"kyazdani42/nvim-tree.lua",
 	})
 	use({
 		"ldelossa/gh.nvim",
