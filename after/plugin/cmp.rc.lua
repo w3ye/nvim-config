@@ -66,13 +66,13 @@ cmp.setup({
 	},
 
 	sources = cmp.config.sources({
+		{ name = "luasnip", options = { use_show_condition = false } }, -- For luasnip users.
 		{
 			name = "nvim_lsp",
 			entry_filter = function(entry, ctx)
 				return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
 			end,
 		},
-		{ name = "luasnip", options = { use_show_condition = false } }, -- For luasnip users.
 		{ name = "path" },
 	}, {
 		{ name = "buffer", keyword_length = 3 },
