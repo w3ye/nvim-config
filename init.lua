@@ -35,12 +35,12 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
-      once = true,
-      command = "normal! zx",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "normal! zx",
+		})
+	end,
 })
 
 -- vim.cmd([[colorscheme nightfox]])
@@ -54,8 +54,6 @@ hi DiffText guibg=#253f4a
 
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
--- vim.cmd [[autocmd BufWritePre *.tsx, *.ts, *.jsx, *.js EslintFixAll]]
 vim.cmd([[syntax enable]])
 vim.cmd([[
 let g:blamer_template = '<committer> • <summary>, <committer-time>'
@@ -131,17 +129,17 @@ vim.keymap.set("i", "<C-e>", "<Nop>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- diagnostic settings
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
 })
 
 -- same word highlighting

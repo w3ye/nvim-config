@@ -1,4 +1,4 @@
 .git/
 .editorconfig
 plugin/packer_compiled.lua
-lua/startify_config.lua
+**/startify_config.lua
