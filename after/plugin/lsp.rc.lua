@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", bufopts)
 
 	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
-	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "<space>cA", vim.lsp.buf.code_action, bufopts)
 
 	vim.keymap.set("n", "<C-m>", vim.lsp.buf.signature_help, bufopts)
 

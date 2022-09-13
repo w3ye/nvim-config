@@ -1,20 +1,22 @@
 local keymap = vim.keymap.set
 local ok, saga = pcall(require, "lspsaga")
 if not ok then
-  return
+	return
 end
 
 saga.init_lsp_saga({
-  border_style = "rounded",
-  code_action_lightbulb = {
-    enable = true,
-    enable_in_insert = false,
-    cache_code_action = true,
-    sign = true,
-    update_time = 150,
-    sign_priority = 20,
-    virtual_text = false,
-  },
+	border_style = "rounded",
+	code_action_icon = "ﯜ",
+	code_action_num_shortcut = true,
+	code_action_lightbulb = {
+		enable = true,
+		enable_in_insert = true,
+		cache_code_action = true,
+		sign = true,
+		update_time = 150,
+		sign_priority = 20,
+		virtual_text = false,
+	},
 })
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -43,10 +45,10 @@ keymap("n", "]f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
 keymap("n", "[e", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "]e", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
