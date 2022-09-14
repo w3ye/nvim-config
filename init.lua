@@ -22,7 +22,7 @@ vim.opt.scrolloff = 8
 vim.opt.wrap = true
 vim.opt.signcolumn = "yes"
 vim.opt.fixendofline = true
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -61,7 +61,7 @@ let g:blamer_relative_time = 1
 ]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
-vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep_args<cr>")
 vim.keymap.set("n", "<leader>gs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")

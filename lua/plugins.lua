@@ -32,7 +32,10 @@ require("packer").startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		},
 	})
 	use({
 		"lewis6991/gitsigns.nvim",
