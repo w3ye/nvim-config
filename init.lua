@@ -48,7 +48,7 @@ vim.cmd([[colorscheme everblush]])
 -- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
-hi cursorlinenr guifg=#59666b
+hi cursorlinenr guifg=None
 hi DiffText guibg=#253f4a
 ]])
 
