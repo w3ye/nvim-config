@@ -6,7 +6,7 @@ end
 
 saga.init_lsp_saga({
 	border_style = "rounded",
-	code_action_icon = "ﯜ",
+	code_action_icon = "ﯜ ",
 	code_action_num_shortcut = true,
 	code_action_lightbulb = {
 		enable = true,

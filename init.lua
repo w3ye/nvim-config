@@ -48,8 +48,8 @@ vim.cmd([[colorscheme everblush]])
 -- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
-hi cursorlinenr guifg=#59666b
-hi DiffText guibg=#253f4a
+hi DiffText guibg=#363838
+hi DIffAdd guifg=#1AEDB1
 ]])
 
 vim.g.mapleader = " "
