@@ -49,7 +49,6 @@ telescope.setup({
 			mappings = { -- extend mappings
 				i = {
 					["<C-l>"] = lga_actions.quote_prompt(),
-					["<C-k>"] = lga_actions.move_selection_previous,
 				},
 			},
 		},
