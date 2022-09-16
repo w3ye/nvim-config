@@ -13,8 +13,5 @@ vim.cmd([[
 vim.cmd([[
   let g:startify_bookmarks = [
     \ {'i': '~/.config/nvim/init.lua'},
-    \ {'r': '~/RoseRocket/src/github.com/RoseRocket/roserocket'},
-    \ {'n': '~/RoseRocket/src/github.com/RoseRocket/notifications'},
-    \ {'u': '~/RoseRocket/src/github.com/RoseRocket/notifications-ui'},
-  \ ]
+    \ ]
 ]])
