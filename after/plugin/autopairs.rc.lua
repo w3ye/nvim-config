@@ -5,7 +5,7 @@ end
 
 npairs.setup({
 	fast_wrap = {
-		map = "<C-q>",
+		map = "<M-e>",
 		chars = { "{", "[", "(", '"', "'" },
 		pattern = [=[[%'%"%)%>%]%)%}%,]]=],
 		end_key = "$",
