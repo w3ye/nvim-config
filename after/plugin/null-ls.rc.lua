@@ -13,7 +13,7 @@ null_ls.setup({
   sources = {
     formatting.stylua,
     formatting.prettier.with({
-      extra_params = { "--no-bracket-spacing", "--single-quote", "--jsx-single-quote", "--semi" },
+      extra_params = { "--single-quote", "--jsx-single-quote", "--semi" },
     }),
     formatting.gofmt,
     -- diagnostics.eslint,
