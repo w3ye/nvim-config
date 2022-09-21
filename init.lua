@@ -132,7 +132,6 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
--- vim.keymap.set("i", "<C-e>", "<Nop>")
 
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

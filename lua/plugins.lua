@@ -141,7 +141,10 @@ require("packer").startup(function(use)
 			require("mini.jump").setup()
 		end,
 	})
-	use("AckslD/nvim-trevJ.lua")
+	use({
+		"AckslD/nvim-trevJ.lua",
+		require("trevj").setup({}),
+	})
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf" },
@@ -167,4 +170,6 @@ require("packer").startup(function(use)
 	use("mhinz/vim-startify")
 	use("romgrk/barbar.nvim")
 	use("SmiteshP/nvim-navic")
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-hop.nvim" })
 end)
