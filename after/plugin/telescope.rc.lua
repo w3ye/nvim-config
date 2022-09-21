@@ -25,7 +25,7 @@ telescope.setup({
 				["<C-t>"] = trouble.open_with_trouble,
 				["<C-d>"] = actions.delete_buffer,
 				["<C-u>"] = false,
-				["<C-h>"] = telescope.extensions.hop.hop,
+				["<C-p>"] = telescope.extensions.hop.hop,
 			},
 			n = {
 				["<C-t>"] = trouble.open_with_trouble,
