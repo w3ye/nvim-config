@@ -16,7 +16,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.autochdir = true
+vim.opt.autochdir = false
 
 vim.opt.scrolloff = 8
 vim.opt.wrap = true
@@ -35,12 +35,12 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufRead", {
-	callback = function()
-		vim.api.nvim_create_autocmd("BufWinEnter", {
-			once = true,
-			command = "normal! zx",
-		})
-	end,
+    callback = function()
+        vim.api.nvim_create_autocmd("BufWinEnter", {
+            once = true,
+            command = "normal! zx",
+        })
+    end,
 })
 
 -- vim.cmd([[colorscheme nightfox]])
@@ -62,6 +62,9 @@ let g:blamer_relative_time = 1
 ]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
+-- vim.keymap.set("n", "<C-F>", "<cmd>FZF<cr>")
+-- vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>")
+vim.keymap.set("n", "<leader>R", "<cmd>Rg!<cr>")
 vim.keymap.set("n", "<leader>fa", "<cmd>Telescope live_grep_args<cr>")
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>")
@@ -135,17 +138,17 @@ vim.keymap.set("i", "<C-e>", "<Nop>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- diagnostic settings
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
 })
 
 -- same word highlighting
