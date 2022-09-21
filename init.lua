@@ -44,16 +44,17 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
--- vim.cmd([[colorscheme nightfox]])
+vim.cmd([[colorscheme nightfox]])
 -- vim.cmd([[colorscheme everblush]])
-vim.cmd([[colorscheme tokyonight-night]])
 -- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
 hi cursorlinenr guifg=None
-hi DiffText guibg=#363838
-hi DIffAdd guifg=#1AEDB1
 ]])
+
+-- NOTE: git diff colors
+-- hi DiffText guibg=#363838
+-- hi DIffAdd guifg=#1AEDB1
 
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
