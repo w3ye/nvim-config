@@ -162,12 +162,6 @@ require("packer").startup(function(use)
 			require("go").setup()
 		end,
 	})
-	use({
-		"gbprod/yanky.nvim",
-		config = function()
-			require("yanky").setup({})
-		end,
-	})
 	use("glepnir/lspsaga.nvim")
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use("mhinz/vim-startify")

@@ -71,6 +71,8 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope file_browser<cr>")
 vim.keymap.set("n", "<leader>fht", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>fkm", "<cmd>Telescope keymaps<cr>")
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>")
+vim.keymap.set("n", "<leader>fp", "<cmd>Telescope registers<cr>")
 vim.keymap.set("n", "<leader>fx", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
@@ -104,8 +106,6 @@ vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
 vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })
 
--- vim.keymap.set("n", "<C-p>", "<cmd>YankyRingHistory<cr>", { silent = true })
-
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
 vim.keymap.set("n", "<leader><C-q>", "<cmd>wqa<cr>")
@@ -132,7 +132,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("i", "<C-e>", "<Nop>")
+-- vim.keymap.set("i", "<C-e>", "<Nop>")
 
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
