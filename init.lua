@@ -29,22 +29,24 @@ vim.opt.splitbelow = true
 vim.opt.hlsearch = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
+vim.opt.mousemoveevent = true
 
 -- code folding
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufRead", {
-	callback = function()
-		vim.api.nvim_create_autocmd("BufWinEnter", {
-			once = true,
-			command = "normal! zx",
-		})
-	end,
+    callback = function()
+        vim.api.nvim_create_autocmd("BufWinEnter", {
+            once = true,
+            command = "normal! zx",
+        })
+    end,
 })
 
 -- vim.cmd([[colorscheme nightfox]])
-vim.cmd([[colorscheme everblush]])
+-- vim.cmd([[colorscheme everblush]])
+vim.cmd([[colorscheme tokyonight-night]])
 -- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
@@ -82,8 +84,8 @@ vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
 vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
+-- vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
+-- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
@@ -102,7 +104,7 @@ vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
 vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })
 
-vim.keymap.set("n", "<C-p>", "<cmd>YankyRingHistory<cr>", { silent = true })
+-- vim.keymap.set("n", "<C-p>", "<cmd>YankyRingHistory<cr>", { silent = true })
 
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
@@ -135,17 +137,17 @@ vim.keymap.set("i", "<C-e>", "<Nop>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- diagnostic settings
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
 })
 
 -- same word highlighting
