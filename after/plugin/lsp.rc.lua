@@ -28,8 +28,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 
-	navic.attach(client, bufnr)
-
 	-- @NOTE: diagnostics hover
 	--   vim.api.nvim_create_autocmd("CursorHold", {
 	--     buffer = bufnr,
@@ -53,6 +51,7 @@ require("lspconfig").gopls.setup({
 	on_attach = function(client, bufnr)
 		-- formatting_callback(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 	settings = {
@@ -80,6 +79,7 @@ require("lspconfig").eslint.setup({
 require("lspconfig").jsonls.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 })
@@ -89,6 +89,7 @@ require("lspconfig").tsserver.setup({
 		on_attach(client, bufnr)
 		client.server_capabilities.document_formatting = false
 		client.server_capabilities.documentRangeFormattingProvider = false
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 })
@@ -96,6 +97,7 @@ require("lspconfig").tsserver.setup({
 require("lspconfig").sumneko_lua.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 	settings = {
@@ -110,6 +112,7 @@ require("lspconfig").sumneko_lua.setup({
 require("lspconfig").cssls.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 })
@@ -117,6 +120,7 @@ require("lspconfig").cssls.setup({
 require("lspconfig").html.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 })
@@ -124,6 +128,7 @@ require("lspconfig").html.setup({
 require("lspconfig").prismals.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
 	end,
 	capabilities = capabilities,
 })
