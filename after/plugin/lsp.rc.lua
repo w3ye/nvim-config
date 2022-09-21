@@ -1,5 +1,7 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+local navic = require("nvim-navic")
+
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -25,6 +27,8 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+
+	navic.attach(client, bufnr)
 
 	-- @NOTE: diagnostics hover
 	--   vim.api.nvim_create_autocmd("CursorHold", {
@@ -70,6 +74,14 @@ require("lspconfig").eslint.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 	end,
+	capabilities = capabilities,
+})
+
+require("lspconfig").jsonls.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
 })
 
 require("lspconfig").tsserver.setup({

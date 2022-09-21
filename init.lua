@@ -29,6 +29,7 @@ vim.opt.splitbelow = true
 vim.opt.hlsearch = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
+vim.opt.mousemoveevent = true
 
 -- code folding
 vim.opt.foldlevel = 20
@@ -43,15 +44,17 @@ vim.api.nvim_create_autocmd("BufRead", {
     end,
 })
 
--- vim.cmd([[colorscheme nightfox]])
-vim.cmd([[colorscheme everblush]])
+vim.cmd([[colorscheme nightfox]])
+-- vim.cmd([[colorscheme everblush]])
 -- change line number color
 vim.cmd([[
 hi linenr guifg=#59666b
 hi cursorlinenr guifg=None
-hi DiffText guibg=#363838
-hi DIffAdd guifg=#1AEDB1
 ]])
+
+-- NOTE: git diff colors
+-- hi DiffText guibg=#363838
+-- hi DIffAdd guifg=#1AEDB1
 
 vim.g.mapleader = " "
 vim.cmd([[set updatetime=100]])
@@ -72,6 +75,8 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope file_browser<cr>")
 vim.keymap.set("n", "<leader>fht", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>fkm", "<cmd>Telescope keymaps<cr>")
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>")
+vim.keymap.set("n", "<leader>fp", "<cmd>Telescope registers<cr>")
 vim.keymap.set("n", "<leader>fx", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
@@ -85,8 +90,8 @@ vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
 vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
+-- vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
+-- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
@@ -104,8 +109,6 @@ vim.keymap.set("n", "<C-S-L>", "<cmd>FocusSplitRight<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mn", "<cmd>FocusToggle<cr>", { silent = true })
 vim.keymap.set("n", "<leader>mm", "<cmd>FocusMaximise<cr>", { silent = true })
 vim.keymap.set("n", "<leader>me", "<cmd>FocusEqualise<cr>", { silent = true })
-
-vim.keymap.set("n", "<C-p>", "<cmd>YankyRingHistory<cr>", { silent = true })
 
 vim.keymap.set("n", "<C-w>C", "<cmd>qa<cr>")
 vim.keymap.set("n", "<leader><C-w>", "<cmd>wq<cr>")
@@ -133,7 +136,6 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("i", "<C-e>", "<Nop>")
 
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

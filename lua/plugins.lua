@@ -14,9 +14,6 @@ require("packer").startup(function(use)
 	use({
 		{
 			"L3MON4D3/LuaSnip",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
 		},
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
@@ -24,7 +21,6 @@ require("packer").startup(function(use)
 	use("editorconfig/editorconfig-vim")
 	use("kyazdani42/nvim-web-devicons")
 	use("tpope/vim-surround")
-	use("safv12/andromeda.vim")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -144,7 +140,10 @@ require("packer").startup(function(use)
 			require("mini.jump").setup()
 		end,
 	})
-	use("AckslD/nvim-trevJ.lua")
+	use({
+		"AckslD/nvim-trevJ.lua",
+		require("trevj").setup({}),
+	})
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf" },
@@ -165,13 +164,11 @@ require("packer").startup(function(use)
 			require("go").setup()
 		end,
 	})
-	use({
-		"gbprod/yanky.nvim",
-		config = function()
-			require("yanky").setup({})
-		end,
-	})
 	use("glepnir/lspsaga.nvim")
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use("mhinz/vim-startify")
+	use("romgrk/barbar.nvim")
+	use("SmiteshP/nvim-navic")
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-hop.nvim" })
 end)
