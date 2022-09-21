@@ -47,3 +47,23 @@ map("n", "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
 bufferline.setup({})
+
+-- NOTE: push tabline to the right when nvimTree is open
+local nvim_tree_events = require("nvim-tree.events")
+local bufferline_state = require("bufferline.state")
+
+local function get_tree_size()
+	return require("nvim-tree.view").View.width
+end
+
+nvim_tree_events.subscribe("TreeOpen", function()
+	bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("Resize", function()
+	bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("TreeClose", function()
+	bufferline_state.set_offset(0)
+end)
