@@ -24,7 +24,7 @@ saga.init_lsp_saga({
 		win_with = "",
 		win_width = 30,
 		auto_enter = true,
-		auto_preview = true,
+		auto_preview = false,
 		virt_text = "┃",
 		jump_key = "o",
 		-- auto refresh when change buffer
