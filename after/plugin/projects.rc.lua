@@ -1,10 +1,16 @@
 local ok, project = pcall(require, "project_nvim")
 if not ok then
-  return
+	return
 end
 
 project.setup({
-  -- the option to manually do so using `:ProjectRoot` command.
-  manual_mode = true,
-  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "packer_compiled.lua" },
+	-- the option to manually do so using `:ProjectRoot` command.
+	manual_mode = false,
+	patterns = { ".git", "Makefile", ".env", ".editorconfig" },
+	sync_root_with_cwd = true,
+	respect_buf_cwd = true,
+	update_focused_file = {
+		enable = true,
+		update_root = true,
+	},
 })
