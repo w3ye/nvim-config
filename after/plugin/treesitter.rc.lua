@@ -1,5 +1,5 @@
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'lua', 'go', 'javascript', 'typescript', 'css', 'json', 'yaml', 'python' },
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "lua", "go", "javascript", "typescript", "css", "json", "yaml", "python" },
   autotag = {
     enable = true,
   },
@@ -13,5 +13,14 @@ require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
-  }
-}
+  },
+  textsubjects = {
+    enable = true,
+    prev_selection = ",", -- (Optional) keymap to select the previous selection
+    keymaps = {
+      ["<cr>"] = "textsubjects-smart",
+      ["."] = "textsubjects-container-outer",
+      ["i;"] = "textsubjects-container-inner",
+    },
+  },
+})

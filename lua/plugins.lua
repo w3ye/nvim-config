@@ -25,6 +25,7 @@ require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("RRethy/nvim-treesitter-textsubjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"nvim-telescope/telescope.nvim",
