@@ -25,6 +25,7 @@ require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("RRethy/nvim-treesitter-textsubjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -171,4 +172,5 @@ require("packer").startup(function(use)
 	use("SmiteshP/nvim-navic")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-hop.nvim" })
+	use("akinsho/toggleterm.nvim")
 end)
