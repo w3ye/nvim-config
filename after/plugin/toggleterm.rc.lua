@@ -4,16 +4,11 @@ if not ok then
 end
 
 term.setup({
-	size = function(t)
-		if t.direction == "horizontal" then
-			return 10
-		else
-			return 20
-		end
-	end,
+	size = 10,
 	open_mapping = [[<c-\>]],
 	autochdir = true,
 	direction = "horizontal",
+	persist_size = false,
 })
 
 function _G.set_terminal_keymaps()
