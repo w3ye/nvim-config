@@ -14,6 +14,37 @@ end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+-- using null-ls as default for formatting
+local default_null_ls = function(client, bufnr)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
+end
+
+local diagnostics_on_hover = function(bufnr)
+	vim.api.nvim_create_autocmd("CursorHold", {
+		buffer = bufnr,
+		callback = function()
+			local opts = {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = "rounded",
+				source = "always",
+				prefix = " ",
+				scope = "cursor",
+			}
+			vim.diagnostic.open_float(nil, opts)
+		end,
+	})
+end
+
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -40,33 +71,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 
-	-- NOTE: lsp formatting
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				lsp_formatting(bufnr)
-			end,
-		})
-	end
-
-	-- @NOTE: diagnostics hover
-	--   vim.api.nvim_create_autocmd("CursorHold", {
-	--     buffer = bufnr,
-	--     callback = function()
-	--       local opts = {
-	--         focusable = false,
-	--         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-	--         border = "rounded",
-	--         source = "always",
-	--         prefix = " ",
-	--         scope = "cursor",
-	--       }
-	--       vim.diagnostic.open_float(nil, opts)
-	--     end,
-	--   })
+	default_null_ls(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -112,8 +117,8 @@ require("lspconfig").tsserver.setup({
 	on_attach = function(client, bufnr)
 		navic.attach(client, bufnr)
 		on_attach(client, bufnr)
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.documentRangeFormattingProvider = false
+		-- client.server_capabilities.document_formatting = false
+		-- client.server_capabilities.documentRangeFormattingProvider = false
 	end,
 	capabilities = capabilities,
 })
