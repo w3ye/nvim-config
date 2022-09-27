@@ -127,7 +127,7 @@ vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory %<cr>")
 
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>")
 vim.keymap.set("n", "<leader>P", "<cmd>ProjectRoot<cr>")
-vim.keymap.set("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<cr>")
+vim.keymap.set("n", "<leader>cp", "<cmd>let @* = expand('%:p')<cr>")
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")
 
