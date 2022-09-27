@@ -6,7 +6,7 @@ end
 project.setup({
 	-- the option to manually do so using `:ProjectRoot` command.
 	manual_mode = false,
-	patterns = { ".git", "Makefile", ".env", ".editorconfig" },
+	patterns = { ".git" },
 	sync_root_with_cwd = true,
 	respect_buf_cwd = true,
 	update_focused_file = {
