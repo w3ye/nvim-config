@@ -35,12 +35,12 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
-      once = true,
-      command = "normal! zx",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "normal! zx",
+		})
+	end,
 })
 
 vim.cmd([[colorscheme nightfox]])
@@ -129,7 +129,9 @@ vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>")
 vim.keymap.set("n", "<leader>P", "<cmd>ProjectRoot<cr>")
 vim.keymap.set("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<cr>")
 
-vim.keymap.set("n", "<leader>J", "<cmd>require('trevj').format_at_cursor()<cr>")
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")
+
+vim.keymap.set("n", "<leader>J", "<cmd>lua require('trevj').format_at_cursor()<cr>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -139,17 +141,17 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- LSP disagnostic icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- diagnostic settings
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
 })
 
 -- same word highlighting

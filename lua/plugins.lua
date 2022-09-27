@@ -141,10 +141,7 @@ require("packer").startup(function(use)
 			require("mini.jump").setup()
 		end,
 	})
-	use({
-		"AckslD/nvim-trevJ.lua",
-		require("trevj").setup({}),
-	})
+	use({ "AckslD/nvim-trevJ.lua" })
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf" },
@@ -173,4 +170,10 @@ require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-hop.nvim" })
 	use("akinsho/toggleterm.nvim")
+	use({
+		"kdheepak/lazygit.nvim",
+		config = function()
+			require("telescope").load_extension("lazygit")
+		end,
+	})
 end)
