@@ -46,7 +46,7 @@ map("n", "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
-bufferline.setup({})
+bufferline.setup()
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
