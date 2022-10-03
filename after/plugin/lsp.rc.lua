@@ -117,6 +117,8 @@ require("lspconfig").tsserver.setup({
 	on_attach = function(client, bufnr)
 		navic.attach(client, bufnr)
 		on_attach(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 	end,
 	capabilities = capabilities,
 })
