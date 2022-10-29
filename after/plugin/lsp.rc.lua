@@ -124,6 +124,7 @@ require("lspconfig").tsserver.setup({
 	capabilities = capabilities,
 })
 
+require("neodev").setup({})
 require("lspconfig").sumneko_lua.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
