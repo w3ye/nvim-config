@@ -89,8 +89,8 @@ vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
 vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
--- vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
--- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>")
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
