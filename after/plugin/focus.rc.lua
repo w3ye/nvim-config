@@ -5,5 +5,4 @@ end
 
 focus.setup({
 	autoresize = false,
-	number = true,
 })
