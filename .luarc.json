@@ -1,8 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.disable": [
+        "unused-local"
+    ],
     "Lua.diagnostics.globals": [
         "vim",
-        "lfs"
+        "lfs",
+        "_lazygit_toggle"
     ],
     "Lua.workspace.checkThirdParty": false,
     "Lua.workspace.library": [
