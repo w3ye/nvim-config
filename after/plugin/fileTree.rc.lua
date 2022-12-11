@@ -1,10 +1,13 @@
 local ok, tree = pcall(require, "nvim-tree")
 if not ok then
-	return
+  return
 end
 
 tree.setup({
-	filters = {
-		dotfiles = false,
-	},
+  filters = {
+    dotfiles = false,
+  },
+  view = {
+    adaptive_size = true,
+  },
 })
