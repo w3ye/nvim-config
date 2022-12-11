@@ -68,6 +68,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
 -- vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>")
 vim.keymap.set("n", "<leader>R", "<cmd>Rg!<cr>")
 vim.keymap.set("n", "<leader>fa", "<cmd>Telescope live_grep_args<cr>")
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>")
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
@@ -80,7 +81,7 @@ vim.keymap.set("n", "<leader>fx", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
 
-vim.keymap.set("n", "<leader>T", "<cmd>NvimTreeFindFileToggle<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeFindFileToggle<cr>")
 
 vim.keymap.set("n", "Y", "yy")
 -- toggles
