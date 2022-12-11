@@ -1,5 +1,4 @@
 .git/
-.editorconfig
 plugin/packer_compiled.lua
 **/startify_config.lua
 packer.nvim/
