@@ -28,6 +28,7 @@ local default_null_ls = function(client, bufnr)
 	end
 end
 
+---@diagnostic disable-next-line: unused-function
 local diagnostics_on_hover = function(bufnr)
 	vim.api.nvim_create_autocmd("CursorHold", {
 		buffer = bufnr,
@@ -138,6 +139,14 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
+})
+
+require("lspconfig").rust_analyzer.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+		navic.attach(client, bufnr)
+	end,
+	capabilities = capabilities,
 })
 
 require("lspconfig").cssls.setup({
