@@ -88,6 +88,10 @@ lualine.setup({
       { navic.get_location, cond = navic.is_available },
     },
   },
-  inactive_winbar = {},
+  inactive_winbar = {
+    lualine_c = {
+      { navic.get_location, cond = navic.is_available },
+    },
+  },
   extensions = {},
 })
