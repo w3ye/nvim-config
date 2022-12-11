@@ -3,4 +3,7 @@ if not ok then
 	return
 end
 
-focus.setup({})
+focus.setup({
+	autoresize = false,
+	number = true,
+})
