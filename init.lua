@@ -2,15 +2,9 @@ require("plugins")
 require("startify_config")
 require("will.set")
 require("will.keymaps")
+require("will.colour")
 
-vim.cmd([[colorscheme nightfox]])
--- vim.cmd([[colorscheme everblush]])
--- change line number color
 vim.cmd([[
-hi linenr guifg=#59666b
-hi cursorlinenr guifg=None
-]])
-
 -- NOTE: git diff colors
 -- hi DiffText guibg=#363838
 -- hi DIffAdd guifg=#1AEDB1
