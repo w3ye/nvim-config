@@ -1,6 +1,7 @@
 require("plugins")
 require("startify_config")
 require("will.set")
+require("will.keymaps")
 
 vim.cmd([[colorscheme nightfox]])
 -- vim.cmd([[colorscheme everblush]])
