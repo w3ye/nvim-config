@@ -1,4 +1,4 @@
--- require("plugins")
+require("plugins")
 require("startify_config")
 require("will.set")
 require("will.keymaps")
