@@ -7,11 +7,8 @@ vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
--- vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup({
-	space_char_blankline = " ",
 	char_highlight_list = {
 		"IndentBlanklineIndent1",
 		"IndentBlanklineIndent2",
@@ -20,6 +17,7 @@ require("indent_blankline").setup({
 		"IndentBlanklineIndent5",
 		"IndentBlanklineIndent6",
 	},
+	show_current_context = true,
 	filetype_exclude = {
 		"startify",
 		"help",
