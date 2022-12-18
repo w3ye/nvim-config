@@ -7,4 +7,5 @@ focus.setup({
 	autoresize = false,
 	relativenumber = true,
 	number = true,
+	excluded_filetypes = { "toggleterm" },
 })

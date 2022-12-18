@@ -26,6 +26,7 @@ local lazygit = Terminal:new({
   float_opts = {
     border = "double",
   },
+  hide_numbers = true,
   -- function to run on opening the terminal
   on_open = function(t)
     vim.cmd("startinsert!")
