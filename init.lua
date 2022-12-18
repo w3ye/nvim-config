@@ -1,18 +1,12 @@
-require("plugins")
+-- require("plugins")
 require("startify_config")
 require("will.set")
 require("will.keymaps")
 require("will.colour")
 
 vim.cmd([[
--- NOTE: git diff colors
--- hi DiffText guibg=#363838
--- hi DIffAdd guifg=#1AEDB1
-
-vim.g.mapleader = " "
-vim.cmd([[set updatetime=100]])
-vim.cmd([[syntax enable]])
-vim.cmd([[
+set updatetime=1000
+syntax enable
 let g:blamer_template = '<committer> • <summary>, <committer-time>'
 let g:blamer_relative_time = 1
 ]])

@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
 -- vim.keymap.set("n", "<C-F>", "<cmd>FZF<cr>")
 -- vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>")
@@ -35,8 +37,8 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- toggles
-vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
 vim.keymap.set("n", "<F2>", "<cmd>set relativenumber!<cr>")
+vim.keymap.set("n", "<F3>", "<cmd>set hlsearch!<cr>")
 vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
