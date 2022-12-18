@@ -1,7 +1,6 @@
 local telescope = require("telescope")
 local lga_actions = require("telescope-live-grep-args.actions")
 local actions = require("telescope.actions")
-telescope.load_extension("live_grep_args")
 
 telescope.setup({
   extensions = {
@@ -18,3 +17,4 @@ telescope.setup({
     },
   },
 })
+telescope.load_extension("live_grep_args")
