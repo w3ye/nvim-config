@@ -26,7 +26,6 @@ require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("RRethy/nvim-treesitter-textsubjects")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -61,10 +60,10 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"terrortylor/nvim-comment",
-		config = function()
-			require("nvim_comment").setup()
-		end,
+		"numToStr/Comment.nvim",
+		requires = {
+			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		},
 	})
 	use("tpope/vim-fugitive")
 	use({
