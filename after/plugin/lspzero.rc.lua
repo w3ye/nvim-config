@@ -25,13 +25,9 @@ lsp.set_preferences = {
 	},
 }
 
-lsp.configure("gopls", {
-	lang_options.go,
-})
+lsp.configure("gopls", lang_options.go)
 
-lsp.configure("sumneko_lua", {
-	lang_options.lua,
-})
+lsp.configure("sumneko_lua", lang_options.lua)
 
 lsp.setup_nvim_cmp({
 	snippet = cmp_options.snippet,
