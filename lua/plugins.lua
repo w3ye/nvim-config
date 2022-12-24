@@ -29,6 +29,9 @@ require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		requires = {
+			"nvim-treesitter/playground",
+		},
 	})
 	use("RRethy/nvim-treesitter-textsubjects")
 	use({
