@@ -86,6 +86,9 @@ local lua = {
 			diagnostics = {
 				globals = { "vim" },
 			},
+			workspace = {
+				checkThridParty = false,
+			},
 		},
 	},
 }
