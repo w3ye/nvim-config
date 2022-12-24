@@ -8,6 +8,8 @@ local keymaps = cmp.mapping.preset.insert({
 	["<C-Space>"] = cmp.mapping.complete({}),
 	["<C-j>"] = cmp.mapping.select_next_item(),
 	["<C-k>"] = cmp.mapping.select_prev_item(),
+	["<C-l>"] = cmp.mapping.select_next_item({ count = 4 }),
+	["<C-h>"] = cmp.mapping.select_prev_item({ count = 4 }),
 	["<C-r>"] = cmp.mapping({
 		i = cmp.mapping.abort(),
 		c = cmp.mapping.close(),

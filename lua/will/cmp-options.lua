@@ -2,6 +2,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local cmp_keymaps = require("will.keymaps.cmp-keymaps")
+local types = require("cmp.types")
 
 local snippet = {
 	expand = function(args)
@@ -13,7 +14,7 @@ local sources = cmp.config.sources({
 	{ name = "luasnip" }, -- For luasnip users.
 	{
 		name = "nvim_lsp",
-		entry_filter = function(entry, _)
+		entry_filter = function(entry, ctx)
 			return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
 		end,
 	},
