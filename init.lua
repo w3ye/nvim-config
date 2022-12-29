@@ -16,3 +16,5 @@ vim.cmd([[
 hi CursorWord cterm=none gui=none guibg=#363838
 let g:cursorword_disable_filetypes = ["TelescopePrompt", "neo-tree"]
 ]])
+
+vim.cmd("set termguicolors")
