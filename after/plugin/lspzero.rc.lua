@@ -31,7 +31,7 @@ lsp.configure("sumneko_lua", lang_options.lua)
 
 lsp.setup_nvim_cmp({
 	snippet = cmp_options.snippet,
-	sources = cmp_options.options,
+	sources = cmp_options.sources,
 	mapping = cmp_options.mapping,
 	formatting = cmp_options.formatting,
 	enabled = cmp_options.enabled,
