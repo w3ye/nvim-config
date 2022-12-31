@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
-local cmp_options = require("will.cmp-options")
-local lsp_config = require("will.lsp-config")
-local lang_options = lsp_config.lang_options
+local co = require("will.cmp-options")
+local lsp_conf = require("will.lsp-config")
+local lang_opt = lsp_conf.lang_options
 require("neodev").setup({})
 
 lsp.preset("recommended")
@@ -13,7 +13,7 @@ lsp.ensure_installed({
 })
 
 lsp.on_attach(function(client, bufnr)
-	lsp_config.on_attach(client, bufnr)
+	lsp_conf.on_attach(client, bufnr)
 end)
 
 lsp.set_preferences = {
@@ -25,16 +25,16 @@ lsp.set_preferences = {
 	},
 }
 
-lsp.configure("gopls", lang_options.go)
+lsp.configure("gopls", lang_opt.go)
 
-lsp.configure("sumneko_lua", lang_options.lua)
+lsp.configure("sumneko_lua", lang_opt.lua)
 
 lsp.setup_nvim_cmp({
-	snippet = cmp_options.snippet,
-	sources = cmp_options.sources,
-	mapping = cmp_options.mapping,
-	formatting = cmp_options.formatting,
-	enabled = cmp_options.enabled,
+	snippet = co.snippet,
+	sources = co.sources,
+	mapping = co.mapping,
+	formatting = co.formatting,
+	enabled = co.enabled,
 })
 
 -- diagnostic settings
