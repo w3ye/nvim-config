@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
 		navic.attach(client, bufnr)
 	end
 
-	if client.name ~= "tsserver" then
+	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
