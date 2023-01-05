@@ -1,6 +1,12 @@
 {
-  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "Lua.workspace.checkThirdParty": false,
-  "Lua.workspace.checkThridParty": false,
-  "Lua.workspace.library": ["~/.config/nvim/"]
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.globals": [
+        "vim",
+        "require"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.checkThridParty": false,
+    "Lua.workspace.library": [
+        "~/.config/nvim/"
+    ]
 }

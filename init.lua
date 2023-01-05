@@ -3,6 +3,7 @@ require("plugins")
 require("will.set")
 require("will.keymaps")
 require("will.colour")
+require("impatient")
 
 vim.cmd([[
 set updatetime=1000
