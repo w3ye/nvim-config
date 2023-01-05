@@ -5,6 +5,7 @@ if not ok then
 end
 
 saga.init_lsp_saga({
+	max_preview_lines = 20,
 	border_style = "rounded",
 	code_action_icon = "ﯜ ",
 	code_action_num_shortcut = true,
@@ -68,7 +69,8 @@ keymap("n", "rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
 -- Show cursor diagnostic
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+-- keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+keymap("n", "<leader>cd", "<cmd>lua vim.diagnostic.open_float()<CR>", { silent = true })
 
 -- Diagnsotic jump can use `<c-o>` to jump back
 keymap("n", "[f", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
