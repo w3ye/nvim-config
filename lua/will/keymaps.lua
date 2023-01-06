@@ -90,5 +90,3 @@ vim.keymap.set("n", "<leader>J", "<cmd>lua require('trevj').format_at_cursor()<c
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-
--- vim.keymap.set("i", "<C-c>", "<Esc>")

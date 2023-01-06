@@ -148,6 +148,7 @@ require("packer").startup(function(use)
 			require("go").setup()
 		end,
 	})
+	use("ray-x/guihua.lua")
 	use("glepnir/lspsaga.nvim")
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use("mhinz/vim-startify")
