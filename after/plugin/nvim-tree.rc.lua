@@ -8,6 +8,16 @@ api.events.subscribe(api.events.Event.FileCreated, function(file)
 	vim.cmd("edit " .. file.fname)
 end)
 
+local function open_nvim_tree()
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+local function collapse_all()
+	require("nvim-tree.actions.tree-modifiers.collapse-all").fn()
+end
+
 tree.setup({
 	live_filter = {
 		prefix = "[FILTER]: ",
@@ -18,10 +28,10 @@ tree.setup({
 	},
 	view = {
 		adaptive_size = true,
-	},
-	mappings = {
-		list = {
-			{ key = "C", action_cb = collapse_all },
+		mappings = {
+			list = {
+				{ key = "C", action_cb = collapse_all },
+			},
 		},
 	},
 })
