@@ -17,14 +17,14 @@ lsp.on_attach(function(client, bufnr)
 	lsp_conf.on_attach(client, bufnr)
 end)
 
-lsp.set_preferences = {
+lsp.set_preferences({
 	sign_icons = {
 		error = " ",
 		warn = " ",
 		hint = " ",
 		info = " ",
 	},
-}
+})
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
