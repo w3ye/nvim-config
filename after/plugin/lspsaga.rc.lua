@@ -9,7 +9,7 @@ saga.init_lsp_saga({
 	border_style = "rounded",
 	code_action_icon = "ﯜ ",
 	code_action_num_shortcut = true,
-	code_action_lightbulb = {
+	lightbulb = {
 		enable = true,
 		enable_in_insert = true,
 		cache_code_action = true,
@@ -18,7 +18,7 @@ saga.init_lsp_saga({
 		sign_priority = 20,
 		virtual_text = false,
 	},
-	show_outline = {
+	outline = {
 		win_position = "right",
 		--set special filetype win that outline window split.like NvimTree neotree
 		-- defx, db_ui
@@ -31,18 +31,18 @@ saga.init_lsp_saga({
 		-- auto refresh when change buffer
 		auto_refresh = true,
 	},
-	finder_action_keys = {
+	finder = {
 		open = "o",
 		vsplit = "s",
 		split = "i",
 		tabe = "t",
 		quit = "q",
 	},
-	code_action_keys = {
+	code_action = {
 		quit = "q",
 		exec = "<CR>",
 	},
-	definition_action_keys = {
+	definition = {
 		edit = "<C-c>o",
 		vsplit = "<C-c>v",
 		split = "<C-c>i",
