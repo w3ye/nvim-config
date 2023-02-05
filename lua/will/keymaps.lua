@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files theme=dropdown<cr>")
+vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files<cr>")
 -- vim.keymap.set("n", "<C-F>", "<cmd>FZF<cr>")
 -- vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>")
 vim.keymap.set("n", "<leader>R", "<cmd>Rg!<cr>")

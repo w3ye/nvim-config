@@ -39,6 +39,9 @@ telescope.setup({
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/*" },
 		},
+		live_grep = {
+			theme = "ivy",
+		},
 	},
 	extensions = {
 		fzf = {
