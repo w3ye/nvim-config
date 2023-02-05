@@ -1,7 +1,7 @@
-local lsp = require("lsp-zero")
+require("neodev").setup({})
 local lsp_conf = require("will.lsp-config")
 local lang_opt = lsp_conf.lang_options
-require("neodev").setup({})
+local lsp = require("lsp-zero")
 
 lsp.preset("lsp-only")
 lsp.ensure_installed({
