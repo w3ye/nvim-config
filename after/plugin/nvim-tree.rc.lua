@@ -8,17 +8,18 @@ api.events.subscribe(api.events.Event.FileCreated, function(file)
 	vim.cmd("edit " .. file.fname)
 end)
 
-local function open_nvim_tree()
-	-- open the tree
-	require("nvim-tree.api").tree.open()
-end
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- local function open_nvim_tree()
+-- 	-- open the tree
+-- 	require("nvim-tree.api").tree.open()
+-- end
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 local function collapse_all()
 	require("nvim-tree.actions.tree-modifiers.collapse-all").fn()
 end
 
 tree.setup({
+	update_cwd = true,
 	live_filter = {
 		prefix = "[FILTER]: ",
 		always_show_folders = false, -- Turn into false from true by default
