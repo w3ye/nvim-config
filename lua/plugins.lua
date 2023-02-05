@@ -49,7 +49,6 @@ require("packer").startup(function(use)
 		"rose-pine/neovim",
 	})
 	use("olivercederborg/poimandres.nvim")
-	use("folke/tokyonight.nvim")
 	use("Everblush/everblush.nvim")
 	use({
 		"windwp/nvim-autopairs",
