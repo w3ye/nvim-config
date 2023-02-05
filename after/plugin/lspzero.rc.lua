@@ -37,4 +37,5 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
+lsp.nvim_workspace()
 lsp.setup()

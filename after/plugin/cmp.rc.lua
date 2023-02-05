@@ -50,6 +50,7 @@ cmp.setup.cmdline({ "/", "?" }, {
 	sources = {
 		{ name = "buffer" },
 	},
+	enabled = true,
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
