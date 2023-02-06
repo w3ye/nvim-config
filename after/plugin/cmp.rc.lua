@@ -1,8 +1,7 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
-local lspkind = require("lspkind")
 local cmp_keymaps = require("will.keymaps.cmp-keymaps")
 local types = require("cmp.types")
+local lspkind = require("lspkind")
 
 cmp.setup({
   sources = cmp.config.sources({
@@ -18,16 +17,19 @@ cmp.setup({
   }),
   mapping = cmp_keymaps,
   snippet = {
-    cmp.config.sources({
-      { name = "luasnip" }, -- For luasnip users.
-      {
-        name = "nvim_lsp",
-        entry_filter = function(entry, ctx)
-          return types.lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
-        end,
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+      menu = {
+        buffer = "[buffer]",
+        nvim_lsp = "[lsp]",
+        luasnip = "[lua_snip]",
       },
-      { name = "buffer", keyword_length = 3 },
-      { name = "path" },
     }),
   },
   enabled = function()
