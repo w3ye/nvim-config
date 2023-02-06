@@ -170,4 +170,5 @@ require("packer").startup(function(use)
 		event = "VimEnter",
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
+	use({ "catppuccin/nvim", as = "catppuccin" })
 end)
