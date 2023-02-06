@@ -17,4 +17,7 @@ hi CursorWord cterm=none gui=none guibg=#363838
 let g:cursorword_disable_filetypes = ["TelescopePrompt", "neo-tree"]
 ]])
 
+-- disable cursor line
+vim.cmd([[set nocul]])
+
 vim.api.nvim_create_user_command("Dvod", "DiffviewOpen develop", {})

@@ -26,17 +26,16 @@ vim.opt.fixendofline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.hlsearch = false
-vim.opt.cursorline = false
 
 -- code folding
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
-      once = true,
-      command = "normal! zx",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "normal! zx",
+		})
+	end,
 })

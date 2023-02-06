@@ -4,6 +4,7 @@ if not ok then
 end
 
 focus.setup({
+	cursorline = false,
 	autoresize = false,
 	excluded_filetypes = { "toggleterm" },
 })
