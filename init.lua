@@ -21,3 +21,9 @@ let g:cursorword_disable_filetypes = ["TelescopePrompt", "neo-tree"]
 vim.cmd([[set nocul]])
 
 vim.api.nvim_create_user_command("Dvod", "DiffviewOpen develop", {})
+
+vim.cmd([[
+  imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")
+  let g:copilot_no_tab_map = v:true
+  let g:copilot_node_command = "/Users/william/.nvm/versions/node/v16.13.2/bin/node"
+]])
