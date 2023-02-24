@@ -40,10 +40,10 @@ require("nvim-treesitter.configs").setup({
 	incremental_selection = {
 		enable = true,
 		keymaps = {
-			init_selection = "<C-space>", -- set to `false` to disable one of the mappings
-			node_incremental = "<C-space>",
-			scope_incremental = "<C-s>",
-			node_decremental = "<C-z>",
+			init_selection = "<C-a>", -- set to `false` to disable one of the mappings
+			node_incremental = "<C-a>",
+			scope_incremental = "<C-z>",
+			node_decremental = "<C-s>",
 		},
 	},
 	indent = {

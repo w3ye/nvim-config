@@ -44,8 +44,9 @@ vim.keymap.set("n", "<F4>", "<cmd>set hlsearch!<cr>")
 vim.keymap.set("n", "<F12>", "<cmd>BlamerToggle<cr>")
 
 -- pressing tab in normal mode split buffers
-vim.keymap.set("n", "<PageUp>", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<PageDown>", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "<tab>", "<cmd>bnext<cr>")
+-- <C-y> maps to <Shift-tab> in warp for some reason
+vim.keymap.set("n", "<C-y>", "<cmd>bprevious<cr>")
 
 -- vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 -- vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })

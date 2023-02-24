@@ -93,8 +93,8 @@ require("diffview").setup({
 		view = {
 			-- The `view` bindings are active in the diff buffers, only when the current
 			-- tabpage is a Diffview.
-			{ "n", "<PageUp>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
-			{ "n", "<PageDown>", actions.select_prev_entry, { desc = "Open the diff for the previous file" } },
+			{ "n", "<tab>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
+			{ "n", "<c-y>", actions.select_prev_entry, { desc = "Open the diff for the previous file" } },
 			{ "n", "gf", actions.goto_file, { desc = "Open the file in a new split in the previous tabpage" } },
 			{ "n", "<C-w><C-f>", actions.goto_file_split, { desc = "Open the file in a new split" } },
 			{ "n", "<C-w>gf", actions.goto_file_tab, { desc = "Open the file in a new tabpage" } },

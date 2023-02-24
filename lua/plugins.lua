@@ -213,4 +213,5 @@ require("packer").startup(function(use)
 			})
 		end,
 	})
+	use({ "tomarrell/vim-npr" })
 end)
