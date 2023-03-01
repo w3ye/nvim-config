@@ -1,5 +1,6 @@
 local navic = require("nvim-navic")
 local lsp_keymaps = require("will.keymaps.lsp-keymaps")
+require("neodev").setup({})
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
@@ -64,39 +65,18 @@ local on_attach = function(client, bufnr)
   default_null_ls(client, bufnr)
 end
 
-local gopls = {
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      staticcheck = true,
-    },
-  },
-  init_options = {
-    usePlaceholders = true,
-  },
-}
+-- LSP disagnostic icons
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
-local lua = {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        checkThridParty = false,
-      },
-    },
-  },
-}
+-- disable virtal text
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 return {
   on_attach = on_attach,
-  lang_options = {
-    go = gopls,
-    lua = lua,
-  },
 }
