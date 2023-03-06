@@ -104,6 +104,10 @@ saga.setup({
     respect_root = false,
     color_mode = true,
   },
+  beacon = {
+    enable = true,
+    frequency = 7,
+  },
 })
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide

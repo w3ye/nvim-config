@@ -6,6 +6,7 @@ local lspkind = require("lspkind")
 cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "luasnip" }, -- For luasnip users.
+		{ name = "nvim_lua" },
 		{
 			name = "nvim_lsp",
 			entry_filter = function(entry, ctx)
@@ -28,7 +29,8 @@ cmp.setup({
 			menu = {
 				buffer = "[buffer]",
 				nvim_lsp = "[lsp]",
-				luasnip = "[lua_snip]",
+				nvim_lua = "[lua api]",
+				luasnip = "[snip]",
 			},
 		}),
 	},
@@ -44,17 +46,11 @@ cmp.setup({
 			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("comment")
 		end
 	end,
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ "/", "?" }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer" },
+	experimental = {
+		ghost_text = true,
 	},
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
@@ -62,4 +58,16 @@ cmp.setup.cmdline(":", {
 	}, {
 		{ name = "cmdline" },
 	}),
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline({
+		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+		["<C-o>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+	}),
+	sources = {
+		{ name = "buffer" },
+	},
 })

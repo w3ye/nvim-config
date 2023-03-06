@@ -1,14 +1,5 @@
 local lsp_conf = require("will.lsp-config")
-
-local function has_value(tab, val)
-  for index, value in ipairs(tab) do
-    if value == val then
-      return true
-    end
-  end
-
-  return false
-end
+require("neodev").setup({})
 
 require("mason").setup()
 
