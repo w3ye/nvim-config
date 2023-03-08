@@ -105,8 +105,6 @@ require("packer").startup(function(use)
 		"lewis6991/gitsigns.nvim",
 	})
 
-	use("APZelos/blamer.nvim")
-
 	use("ahmedkhalf/project.nvim")
 
 	-- Lua tab out
