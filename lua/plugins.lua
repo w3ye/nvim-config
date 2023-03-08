@@ -2,9 +2,13 @@
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
+
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
+
 	use("neovim/nvim-lspconfig")
+	use("folke/neodev.nvim")
+
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -13,9 +17,22 @@ require("packer").startup(function(use)
 	use("rafamadriz/friendly-snippets")
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
+	use("onsails/lspkind.nvim")
+
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+	use("MunifTanjim/prettier.nvim")
+
 	use("editorconfig/editorconfig-vim")
-	use("kyazdani42/nvim-web-devicons")
+
+	use("nvim-tree/nvim-web-devicons")
+
 	use("tpope/vim-surround")
+
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -24,6 +41,9 @@ require("packer").startup(function(use)
 		},
 	})
 	use("RRethy/nvim-treesitter-textsubjects")
+	use("nvim-treesitter/nvim-treesitter-context")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -31,91 +51,106 @@ require("packer").startup(function(use)
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		},
 	})
-	use({
-		"lewis6991/gitsigns.nvim",
-	})
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-hop.nvim" })
+
 	use({ "EdenEast/nightfox.nvim" })
 	use({
 		"rose-pine/neovim",
 	})
 	use("olivercederborg/poimandres.nvim")
 	use("Everblush/everblush.nvim")
+
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
 	})
+
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 		config = function()
 			require("lualine").setup({})
 		end,
 	})
+	use("arkav/lualine-lsp-progress")
+	use("romgrk/barbar.nvim")
+
 	use({
 		"numToStr/Comment.nvim",
 		requires = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		},
 	})
-	use("tpope/vim-fugitive")
+
 	use({
 		"kyazdani42/nvim-tree.lua",
 	})
+
+	use("tpope/vim-fugitive")
 	use({
 		"ldelossa/gh.nvim",
 		requires = { { "ldelossa/litee.nvim" } },
-		config = {
-			function()
-				require("litee.lib").setup()
-				require("litee.gh").setup()
-			end,
-		},
+		config = function()
+			require("litee.lib").setup()
+			require("litee.gh").setup()
+		end,
 	})
-	use("APZelos/blamer.nvim")
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-	})
-	use("arkav/lualine-lsp-progress")
-	use("nvim-treesitter/nvim-treesitter-context")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("onsails/lspkind.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "kdheepak/lazygit.nvim" })
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
+
+	use("APZelos/blamer.nvim")
+
 	use("ahmedkhalf/project.nvim")
+
 	-- Lua tab out
 	use({
 		"abecodes/tabout.nvim",
 		wants = { "nvim-treesitter" }, -- or require if not used so far
 		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
 	})
+
 	-- use("glepnir/dashboard-nvim")
 	use("MattesGroeger/vim-bookmarks")
+
 	use("folke/trouble.nvim")
 	use("folke/todo-comments.nvim")
+
 	use("beauwilliams/focus.nvim")
+
 	use("mg979/vim-visual-multi")
+
 	use({
 		"windwp/nvim-ts-autotag",
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
 	})
+
 	use("xiyaowong/nvim-cursorword")
+
 	use("p00f/nvim-ts-rainbow")
+
 	use({
 		"ggandor/leap.nvim",
 		requires = "tpope/vim-repeat",
 	})
+
 	use({ "ggandor/flit.nvim" })
+
 	use({ "AckslD/nvim-trevJ.lua" })
+
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf" },
 	})
+
 	use({
 		"ethanholz/nvim-lastplace",
 		config = function()
@@ -126,6 +161,7 @@ require("packer").startup(function(use)
 			})
 		end,
 	})
+
 	use({
 		"ray-x/go.nvim",
 		config = function()
@@ -133,29 +169,28 @@ require("packer").startup(function(use)
 		end,
 	})
 	use("ray-x/guihua.lua")
+
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		requires = { { "nvim-tree/nvim-web-devicons" } },
 	})
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
-	use("romgrk/barbar.nvim")
 	use("SmiteshP/nvim-navic")
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope-hop.nvim" })
-	use("akinsho/toggleterm.nvim")
-	use({ "kdheepak/lazygit.nvim" })
-	use("lukas-reineke/indent-blankline.nvim")
-	use("MunifTanjim/prettier.nvim")
-	use("folke/neodev.nvim")
-	use("lewis6991/impatient.nvim")
 	use({
 		"glepnir/dashboard-nvim",
 
 		event = "VimEnter",
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
+
+	use("akinsho/toggleterm.nvim")
+
+	use("lukas-reineke/indent-blankline.nvim")
+
+	use("lewis6991/impatient.nvim")
+
 	use({ "catppuccin/nvim", as = "catppuccin" })
+
 	use({ "mfussenegger/nvim-dap" })
 	-- rest client
 	use({
@@ -198,5 +233,4 @@ require("packer").startup(function(use)
 			})
 		end,
 	})
-	use({ "tomarrell/vim-npr" })
 end)
