@@ -184,6 +184,7 @@ require("packer").startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	use("lukas-reineke/indent-blankline.nvim")
+	use("echasnovski/mini.nvim")
 
 	use("lewis6991/impatient.nvim")
 
