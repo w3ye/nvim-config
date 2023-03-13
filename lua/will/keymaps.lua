@@ -20,7 +20,8 @@ vim.keymap.set("n", "<leader>fx", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("n", "<leader>xL", "<cmd>TodoLocList<cr>")
 vim.keymap.set("n", "<leader>xy", "<cmd>TodoQuickFix<cr>")
 
-vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeFindFileToggle<cr>")
+-- vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeFindFileToggle<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>NeoTreeRevealToggle<cr>")
 
 -- highlight move
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
