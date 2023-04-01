@@ -1,5 +1,7 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
+local types = require("cmp.types")
 
 cmp.setup({
 	sources = cmp.config.sources({
@@ -7,6 +9,9 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{
 			name = "nvim_lsp",
+			entry_filter = function(entry, ctx)
+				return types.lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
+			end,
 		},
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "path" },
@@ -44,7 +49,18 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
-	formatting = {},
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+			menu = {
+				buffer = "[buffer]",
+				nvim_lsp = "[lsp]",
+				nvim_lua = "[lua api]",
+				luasnip = "[snip]",
+			},
+		}),
+	},
 	enabled = function()
 		local context = require("cmp.config.context")
 		if

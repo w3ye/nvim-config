@@ -12,16 +12,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"neovim/nvim-lspconfig",
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
+	-- lsp cmp
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-	{
+		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
-	}
+		"onsails/lspkind.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+	},
+	-- telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	-- treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = {
+			"nvim-treesitter/playground",
+		},
+	},
+	-- formatting
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+	},
 }, {})
