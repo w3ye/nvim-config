@@ -40,4 +40,22 @@ require("lazy").setup({
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 	},
+	-- coding
+	{
+		"windwp/nvim-autopairs",
+		"numToStr/Comment.nvim",
+		"tpope/vim-surround",
+		{ "abecodes/tabout.nvim", dependencies = { "nvim-treesitter" } },
+		"folke/todo-comments.nvim",
+	},
+	-- git
+	{
+		"tpope/vim-fugitive",
+		{ "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+		{ "lewis6991/gitsigns.nvim" },
+	},
+	-- themes
+	{
+		{ "catppuccin/nvim", name = "catppuccin" },
+	},
 }, {})
