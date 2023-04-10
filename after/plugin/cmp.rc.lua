@@ -7,12 +7,12 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "luasnip" }, -- For luasnip users.
     { name = "nvim_lua" },
-    lualine({
+    {
       name = "nvim_lsp",
       entry_filter = function(entry, ctx)
         return types.lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
       end,
-    }),
+    },
     { name = "buffer", keyword_length = 3 },
     { name = "path" },
   }),
