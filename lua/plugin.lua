@@ -47,6 +47,7 @@ require("lazy").setup({
 		"tpope/vim-surround",
 		{ "abecodes/tabout.nvim", dependencies = { "nvim-treesitter" } },
 		"folke/todo-comments.nvim",
+		"mg979/vim-visual-multi",
 	},
 	-- git
 	{
@@ -58,4 +59,6 @@ require("lazy").setup({
 	{
 		{ "catppuccin/nvim", name = "catppuccin" },
 	},
+	-- UI
+	{},
 }, {})
