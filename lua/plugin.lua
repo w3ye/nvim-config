@@ -60,5 +60,20 @@ require("lazy").setup({
 		{ "catppuccin/nvim", name = "catppuccin" },
 	},
 	-- UI
-	{},
+	{
+		"mrjones2014/nvim-ts-rainbow",
+		"lukas-reineke/indent-blankline.nvim",
+		"echasnovski/mini.nvim",
+	},
+	-- editor
+	{
+		"ethanholz/nvim-lastplace",
+	},
+	-- language
+	{
+		-- go
+		{
+			"ray-x/go.nvim",
+		},
+	},
 }, {})
