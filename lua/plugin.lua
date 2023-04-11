@@ -54,7 +54,7 @@ require("lazy").setup({
     "numToStr/Comment.nvim",
     "tpope/vim-surround",
     { "abecodes/tabout.nvim" },
-    "folke/todo-comments.nvim",
+    { "folke/todo-comments.nvim", "JoosepAlviste/nvim-ts-context-commentstring" },
     "mg979/vim-visual-multi",
     "AckslD/nvim-trevJ.lua",
     "folke/trouble.nvim",
