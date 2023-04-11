@@ -56,10 +56,10 @@ keymap("n", "]f", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 
 -- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[e", function()
-	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 keymap("n", "]e", function()
-	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
 
 -- Toggle outline
@@ -86,20 +86,3 @@ keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
 keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
-
-require("lspsaga").setup({
-	request_timeout = 3000,
-	preview = {
-		lines_above = 0,
-		lines_below = 10,
-	},
-	scroll_preview = {
-		scroll_down = "<c-j>",
-		scroll_up = "<c-k>",
-	},
-	lightbulb = {
-		enable = false,
-		enable_in_insert = false,
-		virtual_text = false,
-	},
-})
