@@ -1,4 +1,4 @@
 require("focus").setup({
-  enable = false,
-  excluded_filetypes = { "neo-tree" },
+	autoresize = true,
+	excluded_filetypes = { "neo-tree" },
 })
