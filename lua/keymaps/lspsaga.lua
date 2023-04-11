@@ -1,3 +1,4 @@
+local vim = vim
 local keymap = vim.keymap.set
 
 -- LSP finder - Find the symbol's definition
@@ -56,10 +57,10 @@ keymap("n", "]f", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 
 -- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[e", function()
-  require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 keymap("n", "]e", function()
-  require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
 
 -- Toggle outline

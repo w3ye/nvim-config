@@ -31,9 +31,19 @@ require("lazy").setup({
   },
   -- telescope
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    {
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.1",
+      dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build =
+      "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+    },
   },
   -- treesitter
   {
@@ -86,12 +96,27 @@ require("lazy").setup({
     "echasnovski/mini.nvim",
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-web-devicons",
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      version = "v2.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
+    },
+    {
+      "s1n7ax/nvim-window-picker",
+      version = "v1.*",
+    },
+    "beauwilliams/focus.nvim",
   },
   -- editor
   {
     "ethanholz/nvim-lastplace",
     "ggandor/flit.nvim",
     "ggandor/leap.nvim",
+    "gpanders/editorconfig.nvim",
   },
   -- language
   {
