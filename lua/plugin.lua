@@ -76,6 +76,7 @@ require("lazy").setup({
 				{ "nvim-treesitter/nvim-treesitter" },
 			},
 		},
+		"MunifTanjim/prettier.nvim",
 	},
 	-- git
 	{
