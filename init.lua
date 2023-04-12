@@ -42,15 +42,13 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function()
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "lazy",
-			command = "set nonu",
-		})
-	end,
+-- disable numbering for lazy
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lazy",
+	command = "set nonu",
 })
 
+-- disable insert mode when entering a new file
 vim.api.nvim_create_autocmd("BufEnter", {
 	command = "stopinsert",
 })
