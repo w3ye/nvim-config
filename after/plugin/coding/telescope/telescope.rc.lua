@@ -21,8 +21,8 @@ require("telescope").setup({
 				["<C-t>"] = trouble.open_with_trouble,
 				["<M-d>"] = actions.delete_buffer,
 				["<C-u>"] = false,
-				["<C-h>"] = actions.results_scrolling_up,
-				["<C-l>"] = actions.results_scrolling_down,
+				["<C-p>"] = actions.results_scrolling_up,
+				["<C-n>"] = actions.results_scrolling_down,
 			},
 			n = {
 				["<C-t>"] = trouble.open_with_trouble,
