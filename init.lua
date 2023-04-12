@@ -51,8 +51,3 @@ vim.api.nvim_create_autocmd("BufAdd", {
 		})
 	end,
 })
-
--- disable insert mode when entering a new file
-vim.api.nvim_create_autocmd("BufEnter", {
-	command = "stopinsert",
-})
