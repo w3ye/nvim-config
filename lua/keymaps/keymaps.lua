@@ -5,6 +5,7 @@ require("keymaps.diffview")
 require("keymaps.neotree")
 require("keymaps.focus")
 require("keymaps.bufferline")
+require("keymaps.noice")
 
 -- highlight move
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

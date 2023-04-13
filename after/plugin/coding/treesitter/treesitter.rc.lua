@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
 		"fish",
 		"bash",
 		"markdown",
+		"markdown_inline",
 	},
 	auto_install = true,
 	sync_install = true,
