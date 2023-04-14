@@ -26,8 +26,10 @@ require("lazy").setup({
 	{
 		"rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
-		event = "LspAttach",
+		{ "L3MON4D3/LuaSnip", dependencies = {
+			"rafamadriz/friendly-snippets",
+			"saadparwaiz1/cmp_luasnip",
+		} },
 	},
 	-- telescope
 	{
