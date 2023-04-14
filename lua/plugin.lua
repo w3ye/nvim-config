@@ -76,6 +76,7 @@ require("lazy").setup({
 				{ "nvim-treesitter/nvim-treesitter" },
 			},
 		},
+		{ "windwp/nvim-spectre", dependencies = "nvim-lua/plenary.nvim" },
 	},
 	-- git
 	{
@@ -83,6 +84,7 @@ require("lazy").setup({
 		{ "lewis6991/gitsigns.nvim" },
 		{ "TimUntersberger/neogit", dependencies = "nvim-lua/plenary.nvim" },
 		{ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+		{ "kdheepak/lazygit.nvim" },
 	},
 	-- UI
 	{
