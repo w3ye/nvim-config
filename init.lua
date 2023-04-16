@@ -34,34 +34,34 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 20
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
-      once = true,
-      command = "normal! zx",
-    })
-    vim.api.nvim_create_autocmd("BufWrite", {
-      once = true,
-      command = "normal! zx",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "normal! zx",
+		})
+		vim.api.nvim_create_autocmd("BufWrite", {
+			once = true,
+			command = "normal! zx",
+		})
+	end,
 })
 
 -- disable numbering for lazy
 vim.api.nvim_create_autocmd("BufAdd", {
-  callback = function()
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "lazy",
-      command = "set nonu",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "lazy",
+			command = "set nonu",
+		})
+	end,
 })
 
 -- autocommand to stop insert mode when opening a file
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
-      once = true,
-      command = "stopinsert",
-    })
-  end,
+	callback = function()
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			once = true,
+			command = "stopinsert",
+		})
+	end,
 })
