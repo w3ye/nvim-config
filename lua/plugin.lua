@@ -147,6 +147,12 @@ require("lazy").setup({
   },
   -- copilot
   {
-    "zbirenbaum/copilot.lua",
+    {
+      "zbirenbaum/copilot.lua",
+      dependencies = "zbirenbaum/copilot-cmp",
+      cmd = "Copilot",
+      event = "InsertEnter",
+    },
+    "zbirenbaum/copilot-cmp",
   },
 }, {})
