@@ -22,7 +22,7 @@ require("copilot").setup({
       accept = "<M-l>",
       accept_word = false,
       accept_line = false,
-      next = "<M-+>",
+      next = "<M-=>",
       prev = "<M-->",
       dismiss = "<C-]>",
     },

@@ -111,9 +111,7 @@ local lua_ls = {
 local servers = { gopls, lua_ls }
 local server_setup = function(name)
 	if servers[name] ~= nil then
-		return {
-			servers[name],
-		}
+		return servers[name]
 	end
 	return {
 		on_attach = lsp_attach,
