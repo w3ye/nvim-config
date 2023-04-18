@@ -63,3 +63,9 @@ vim.api.nvim_create_autocmd("BufRead", {
 		})
 	end,
 })
+
+-- autocommand to set syntax to mustach if extension is .handlebars
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*.handlebars",
+	command = "set filetype=html syntax=mustache",
+})
