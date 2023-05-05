@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>J", "<cmd>lua require('trevj').format_at_cursor()<c
 vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>")
 
 vim.keymap.set("n", "<leader>sr", function()
-	require("spectre").open()
+    require("spectre").open()
 end)
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")

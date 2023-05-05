@@ -30,6 +30,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+vim.opt.scrolloff = 4
+
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 20
@@ -64,8 +66,7 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
--- autocommand to set syntax to mustach if extension is .handlebars
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*.handlebars",
-	command = "set filetype=html syntax=mustache",
+	command = "set filetype=handlebars syntax=mustache",
 })
