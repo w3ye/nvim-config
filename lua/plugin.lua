@@ -159,6 +159,10 @@ require("lazy").setup({
 			config = function()
 				require("go").setup()
 			end,
+			keys = {
+				{ "<leader>tf", "<cmd>GoTestFile<cr>" },
+				{ "<leader>tF", "<cmd>GoTestFunc<cr>" },
+			},
 			event = { "CmdlineEnter" },
 			ft = { "go", "gomod" },
 			build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
