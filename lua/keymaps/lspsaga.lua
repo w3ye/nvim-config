@@ -86,4 +86,4 @@ keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
-keymap({ "n", "t" }, "<C-`>", "<cmd>Lspsaga term_toggle<CR>")
+keymap({ "n", "t" }, "<A-`>", "<cmd>Lspsaga term_toggle<CR>")
