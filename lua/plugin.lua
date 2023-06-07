@@ -131,8 +131,16 @@ require("lazy").setup({
             event = "VimEnter",
             dependencies = { { "nvim-tree/nvim-web-devicons" } },
         },
-        "folke/noice.nvim",
-        "rcarriga/nvim-notify",
+        {
+            "folke/noice.nvim",
+            keys = require("keymaps.noice").keys,
+        },
+        {
+            "rcarriga/nvim-notify",
+            config = function()
+                require("core.notify").setup()
+            end,
+        },
     },
     {
         "romgrk/barbar.nvim",
