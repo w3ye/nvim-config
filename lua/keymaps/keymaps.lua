@@ -30,7 +30,7 @@ vim.keymap.set("n", "<F2>", "<cmd>set hlsearch!<cr>")
 -- pressing tab in normal mode split buffers
 vim.keymap.set("n", "<tab>", "<cmd>bnext<cr>")
 -- <C-y> maps to <Shift-tab> in warp for some reason
-vim.keymap.set("n", "<C-y>", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "<s-tab>", "<cmd>bprevious<cr>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>J", "<cmd>lua require('trevj').format_at_cursor()<c
 vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>")
 
 vim.keymap.set("n", "<leader>sr", function()
-    require("spectre").open()
+	require("spectre").open()
 end)
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")
