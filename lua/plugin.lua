@@ -188,6 +188,7 @@ require("lazy").setup({
             config = function()
                 require("core.neotest").neotest_setup()
             end,
+            event = "BufEnter *.spec.ts",
         },
     },
     -- copilot
