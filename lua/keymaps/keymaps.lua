@@ -1,5 +1,4 @@
 require("keymaps.trouble")
-require("keymaps.telescope")
 require("keymaps.lspsaga")
 require("keymaps.diffview")
 require("keymaps.focus")

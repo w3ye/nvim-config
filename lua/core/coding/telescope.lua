@@ -4,6 +4,7 @@ M.setup = function()
 	local actions = require("telescope.actions")
 	local trouble = require("trouble.providers.telescope")
 	local lga_actions = require("telescope-live-grep-args.actions")
+	local project_actions = require("telescope._extensions.project.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -64,6 +65,7 @@ M.setup = function()
 				override_file_sorter = true,
 				case_mode = "smart_case",
 			},
+			project = {},
 		},
 	})
 
@@ -81,6 +83,7 @@ M.keys = {
 	{ "<leader>f", "<cmd>Telescope<cr>" },
 	{ "<leader>ff", "<cmd>Telescope buffers<cr>" },
 	{ "<leader>fr", "<cmd>Telescope resume<cr>" },
+	{ "<C-p>", "<cmd>Telescope project<cr>" },
 }
 
 return M
