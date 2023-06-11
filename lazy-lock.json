@@ -3,6 +3,7 @@
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "a6355b12a3b7da0aef71f02560e17ff480182b97" },
   "barbar.nvim": { "branch": "master", "commit": "d0b39de8ce48e9efced88edc9244ca21e571bb98" },
+  "bookmarks.nvim": { "branch": "main", "commit": "3079ab9a537e754aade19bc40c32ceb8efcd16f5" },
   "catppuccin": { "branch": "main", "commit": "fa9a4465672fa81c06b23634c0f04f6a5d622211" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },

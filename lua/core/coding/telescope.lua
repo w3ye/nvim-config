@@ -72,6 +72,7 @@ M.setup = function()
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
 	require("telescope").load_extension("project")
+	require("telescope").load_extension("bookmarks")
 end
 
 M.keys = {
@@ -83,6 +84,10 @@ M.keys = {
 	{ "<leader>f", "<cmd>Telescope<cr>" },
 	{ "<leader>ff", "<cmd>Telescope buffers<cr>" },
 	{ "<leader>fr", "<cmd>Telescope resume<cr>" },
+	{
+		"<leader>fm",
+		"<cmd>lua require('telescope').extensions.bookmarks.list(require('telescope.themes').get_cursor())<cr>",
+	},
 	{ "<C-p>", "<cmd>Telescope project<cr>" },
 }
 
