@@ -30,6 +30,15 @@ vim.keymap.set("n", "<tab>", "<cmd>bnext<cr>")
 -- <C-y> maps to <Shift-tab> in warp for some reason
 vim.keymap.set("n", "<s-tab>", "<cmd>bprevious<cr>")
 
+vim.keymap.set("n", "<M-right>", "<C-w>>", { silent = true })
+vim.keymap.set("n", "<M-left>", "<C-w><", { silent = true })
+vim.keymap.set("n", "<M-up>", "<C-w>+", { silent = true })
+vim.keymap.set("n", "<M-down>", "<C-w>-", { silent = true })
+
+-- highlight move
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
