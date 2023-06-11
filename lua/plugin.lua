@@ -61,6 +61,7 @@ require("lazy").setup({
         dependencies = {
             "nvim-treesitter/playground",
         },
+        config = require("core.coding.treesitter").setup,
     },
     -- formatting
     {
