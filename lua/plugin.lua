@@ -40,6 +40,8 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim",
 			tag = "0.1.1",
 			dependencies = { "nvim-lua/plenary.nvim" },
+			config = require("core.coding.telescope").setup,
+			keys = require("core.coding.telescope").keys,
 		},
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -47,6 +49,7 @@ require("lazy").setup({
 		},
 		{
 			"nvim-telescope/telescope-live-grep-args.nvim",
+			"nvim-telescope/telescope-project.nvim",
 		},
 	},
 	-- treesitter

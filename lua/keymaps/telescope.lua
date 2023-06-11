@@ -1,8 +1,0 @@
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope find_files<cr>")
-vim.keymap.set("n", "<leader>fA", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>fa", "<cmd>Telescope live_grep_args<cr>")
-vim.keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>")
-vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>")
-vim.keymap.set("n", "<leader>f", "<cmd>Telescope<cr>")
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope buffers<cr>")
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>")
