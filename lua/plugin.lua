@@ -43,7 +43,8 @@ require("lazy").setup({
         },
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+            build =
+            "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
         },
         {
             "nvim-telescope/telescope-live-grep-args.nvim",
@@ -144,6 +145,7 @@ require("lazy").setup({
     },
     {
         "romgrk/barbar.nvim",
+        event = "VimEnter",
         dependencies = "nvim-tree/nvim-web-devicons",
         version = "^1.0.0", -- optional: only update when a new 1.x version is released
     },
@@ -153,6 +155,14 @@ require("lazy").setup({
         "ggandor/flit.nvim",
         "ggandor/leap.nvim",
         "gpanders/editorconfig.nvim",
+        {
+            "folke/which-key.nvim",
+            event = "VeryLazy",
+            init = function()
+                vim.o.timeout = true
+                vim.o.timeoutlen = 300
+            end,
+        },
     },
     -- language
     {
