@@ -10,16 +10,17 @@ M.setup = function()
 			["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
 			["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
 		},
+		on_attach = function(bufnr)
+			local bm = require("bookmarks")
+			local map = vim.keymap.set
+			map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
+			map("n", "mi", bm.bookmark_ann) -- add or edit mark annotation at current line
+			map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer
+			map("n", "mn", bm.bookmark_next) -- jump to next mark in local buffer
+			map("n", "mp", bm.bookmark_prev) -- jump to previous mark in local buffer
+			map("n", "ml", bm.bookmark_list) -- show marked file list in quickfix window
+		end,
 	})
 end
-
-M.keys = {
-	{ "mm", '<cmd>require("bookmarks").bookmark_toggle<cr>' }, -- add or remove bookmark at current line
-	{ "mi", '<cmd>require("bookmarks").bookmark_ann<cr>' }, -- add or edit mark annotation at current line
-	{ "mc", '<cmd>require("bookmarks").bookmark_clean<cr>' }, -- clean all marks in local buffer
-	{ "mn", '<cmd>require("bookmarks").bookmark_next<cr>' }, -- jump to next mark in local buffer
-	{ "mp", '<cmd>require("bookmarks").bookmark_prev<cr>' }, -- jump to previous mark in local buffer
-	{ "ml", '<cmd>require("bookmarks").bookmark_list<cr>' }, -- show marked file list in quickfix window
-}
 
 return M
