@@ -4,7 +4,6 @@ M.setup = function()
 	local actions = require("telescope.actions")
 	local trouble = require("trouble.providers.telescope")
 	local lga_actions = require("telescope-live-grep-args.actions")
-	local project_actions = require("telescope._extensions.project.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -71,7 +70,7 @@ M.setup = function()
 
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
-	require("telescope").load_extension("project")
+	-- require("telescope").load_extension("project")
 	require("telescope").load_extension("bookmarks")
 end
 
@@ -86,7 +85,7 @@ M.keys = {
 	{ "<leader>fr", "<cmd>Telescope resume<cr>" },
 	{
 		"<leader>fm",
-		"<cmd>lua require('telescope').extensions.bookmarks.list(require('telescope.themes').get_cursor())<cr>",
+		"<cmd>lua require('telescope').extensions.bookmarks.list(require('telescope.themes').get_ivy())<cr>",
 	},
 	{ "<C-p>", "<cmd>Telescope project<cr>" },
 }

@@ -1,7 +1,6 @@
 require("keymaps.trouble")
 require("keymaps.lspsaga")
 require("keymaps.diffview")
-require("keymaps.focus")
 require("keymaps.bufferline")
 require("keymaps.noice")
 
