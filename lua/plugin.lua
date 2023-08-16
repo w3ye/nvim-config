@@ -61,6 +61,9 @@ require("lazy").setup({
 			"nvim-treesitter/playground",
 		},
 		config = require("core.coding.treesitter").setup,
+		{
+			"HiPhish/nvim-ts-rainbow2",
+		},
 	},
 	-- formatting
 	{
@@ -80,7 +83,7 @@ require("lazy").setup({
 			ft("lua"):fmt("stylua")
 
 			-- use lsp to format first then use golines to format
-			ft("go"):fmt("lsp"):append("golines")--[[ :lint("golangci") ]]
+			ft("go"):fmt("lsp"):append("golines") --[[ :lint("golangci") ]]
 
 			-- multiple files register
 			ft("typescript,javascript,typescriptreact:"):fmt("prettier")
