@@ -1,9 +1,3 @@
-require("keymaps.trouble")
-require("keymaps.lspsaga")
-require("keymaps.diffview")
-require("keymaps.bufferline")
-require("keymaps.noice")
-
 -- highlight move
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -40,12 +34,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-
-vim.keymap.set("n", "<leader>J", "<cmd>lua require('trevj').format_at_cursor()<cr>")
-vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>")
-
-vim.keymap.set("n", "<leader>sr", function()
-	require("spectre").open()
-end)
-
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")

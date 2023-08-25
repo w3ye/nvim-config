@@ -70,3 +70,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*.handlebars",
 	command = "set filetype=handlebars syntax=mustache",
 })
+
+vim.opt.termguicolors = true
+vim.opt.list = true
