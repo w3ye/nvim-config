@@ -228,6 +228,7 @@ require("lazy").setup({
 		},
 		{
 			"rcarriga/nvim-notify",
+			enabled = false,
 			config = function()
 				require("core.notify").setup()
 			end,
