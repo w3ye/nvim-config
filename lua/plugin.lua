@@ -105,20 +105,6 @@ require("lazy").setup({
 	},
 	-- coding
 	coding,
-	{
-		{
-			"mfussenegger/nvim-dap",
-			config = require("core.coding.debugger").setup,
-			enabled = false,
-			keys = {
-				{ "<leader>bt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
-				{ "<leader>bc", "<cmd>lua require'dap'.continue()<cr>", desc = "Debug continue" },
-				{ "<F7>", "<cmd>lua require'dap'.step_into()<cr>", desc = "Debug step into" },
-				{ "<F8>", "<cmd>lua require'dap'.step_over()<cr>", desc = "Debug step over" },
-				{ "<leader>br", "<cmd>lua require'dap'.repl.open()<cr>", desc = "Dap open" },
-			},
-		},
-	},
 	-- UI
 	ui,
 	{
@@ -143,9 +129,6 @@ require("lazy").setup({
 				vim.fn["fzf#install"]()
 			end,
 		},
-		{
-			"kevinhwang91/nvim-bqf",
-		},
 	},
 	-- language
 	lang,
@@ -153,6 +136,7 @@ require("lazy").setup({
 		-- testing framework
 		{
 			"nvim-neotest/neotest",
+			enabled = false,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 				"nvim-treesitter/nvim-treesitter",

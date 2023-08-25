@@ -6,6 +6,7 @@ local trouble = require("core.coding.trouble")
 local enabled = require("core.enabled")
 local lspsaga = require("core.coding.lspsaga")
 local git = require("core.coding.git")
+local dap = require("core.coding.dap")
 
 local M = {
 	autopairs,
@@ -41,6 +42,7 @@ local M = {
 			},
 		},
 	},
+	dap,
 }
 
 return M

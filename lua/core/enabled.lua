@@ -5,6 +5,7 @@ if all_off == true then
 end
 
 local M = {
+	-- coding
 	autopairs = On,
 	comment = On,
 	tabout = On,
@@ -20,6 +21,7 @@ local M = {
 	noegit = On,
 	diffview = On,
 	lazygit = On,
+	dap = false,
 	-- ui
 	blankline = On,
 	mini = On,
