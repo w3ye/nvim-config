@@ -20,32 +20,8 @@ local lsp = require("core.lsp")
 
 require("lazy").setup({
 	lsp,
-	-- telescope
-	{
-		{
-			"nvim-telescope/telescope.nvim",
-			tag = "0.1.1",
-			dependencies = { "nvim-lua/plenary.nvim" },
-			event = "VimEnter",
-			config = require("core.coding.telescope").setup,
-			keys = require("core.coding.telescope").keys,
-		},
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-		},
-		{
-			"nvim-telescope/telescope-live-grep-args.nvim",
-			{ "nvim-telescope/telescope-project.nvim", enabled = false },
-		},
-	},
-	-- coding
 	coding,
-	-- UI
 	ui,
-	-- editor
 	editor,
-	-- language
 	lang,
-	-- copilot
 }, {})

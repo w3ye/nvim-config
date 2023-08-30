@@ -285,6 +285,7 @@ local M = {
 	config = neotree_setup,
 	keys = {
 		{ "<leader>t", "<cmd>Neotree reveal toggle<cr>", desc = "NeoTree toggle", { silent = true, noremap = true } },
+		{ "<leader>T", "<cmd>Neotree reveal<cr>", desc = "NeoTree toggle", { silent = true, noremap = true } },
 	},
 }
 

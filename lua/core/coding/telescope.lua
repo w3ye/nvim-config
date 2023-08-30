@@ -1,6 +1,6 @@
-local M = {}
+local enabled = require("core.enabled").telescope
 
-M.setup = function()
+local telescope_setup = function()
 	local actions = require("telescope.actions")
 	local trouble = require("trouble.providers.telescope")
 	local lga_actions = require("telescope-live-grep-args.actions")
@@ -74,7 +74,7 @@ M.setup = function()
 	require("telescope").load_extension("bookmarks")
 end
 
-M.keys = {
+local telescope_keys = {
 	{ "<C-f>", "<cmd>Telescope find_files<cr>" },
 	{ "<leader>fA", "<cmd>Telescope live_grep<cr>" },
 	{ "<leader>fa", "<cmd>Telescope live_grep_args<cr>" },
@@ -88,6 +88,27 @@ M.keys = {
 		"<cmd>lua require('telescope').extensions.bookmarks.list(require('telescope.themes').get_ivy())<cr>",
 	},
 	{ "<C-p>", "<cmd>Telescope project<cr>" },
+}
+
+local M = {
+	{
+		{
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.2",
+			dependencies = { "nvim-lua/plenary.nvim" },
+			enabled = enabled,
+			event = "VimEnter",
+			config = telescope_setup,
+			keys = telescope_keys,
+		},
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			enabled = enabled,
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		},
+		{ "nvim-telescope/telescope-live-grep-args.nvim", enabled = enabled },
+		{ "nvim-telescope/telescope-project.nvim", enabled = false },
+	},
 }
 
 return M

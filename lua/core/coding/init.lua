@@ -9,6 +9,7 @@ local git = require("core.coding.git")
 local dap = require("core.coding.dap")
 local guard = require("core.coding.guard")
 local treesitter = require("core.coding.treesitter")
+local telescope = require("core.coding.telescope")
 
 local M = {
 	autopairs,
@@ -47,6 +48,7 @@ local M = {
 	dap,
 	guard,
 	treesitter,
+	telescope,
 }
 
 return M

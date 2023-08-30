@@ -23,6 +23,7 @@ local M = {
 	lazygit = On,
 	dap = false,
 	treesitter = On,
+	telescope = On,
 	-- ui
 	blankline = On,
 	mini = On,
