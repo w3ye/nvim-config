@@ -51,13 +51,15 @@ local treesitter_setup = function()
 	})
 end
 local M = {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	enabled = enabled,
-	dependencies = {
-		"nvim-treesitter/playground",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		enabled = enabled,
+		dependencies = {
+			"nvim-treesitter/playground",
+		},
+		config = treesitter_setup,
 	},
-	config = treesitter_setup,
 	{
 		"HiPhish/nvim-ts-rainbow2",
 		enabled = enabled,
