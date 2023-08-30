@@ -7,6 +7,8 @@ local enabled = require("core.enabled")
 local lspsaga = require("core.coding.lspsaga")
 local git = require("core.coding.git")
 local dap = require("core.coding.dap")
+-- local null_ls = require("core.coding.null_ls")
+local guard = require("core.coding.guard")
 
 local M = {
 	autopairs,
@@ -43,6 +45,8 @@ local M = {
 		},
 	},
 	dap,
+   --null_ls,
+   guard,
 }
 
 return M

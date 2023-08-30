@@ -1,6 +1,7 @@
 local M = {
 	{
 		"ray-x/go.nvim",
+		enabled = require("core.enabled").go,
 		dependencies = { -- optional packages
 			"ray-x/guihua.lua",
 			"neovim/nvim-lspconfig",
@@ -24,6 +25,21 @@ local M = {
 		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+	},
+	{
+		"nvim-neotest/neotest",
+		enabled = require("core.enabled").go,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"thenbe/neotest-playwright",
+		},
+		keys = require("core.neotest").keys,
+		config = function()
+			require("core.neotest").neotest_setup()
+		end,
+		event = "BufEnter *.spec.ts",
 	},
 }
 

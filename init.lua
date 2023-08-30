@@ -66,6 +66,10 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("BufEnter", {
+	command = "set fo-=cro",
+})
+
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*.handlebars",
 	command = "set filetype=handlebars syntax=mustache",

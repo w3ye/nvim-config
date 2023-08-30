@@ -1,11 +1,16 @@
-local M = {}
+local neotree_setup = function()
+	-- If you want icons for diagnostic errors, you'll need to define them somewhere:
+	vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+	vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+	vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+	vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-M.setup = function()
 	require("neo-tree").setup({
 		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = true,
+		enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
 		open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 		sort_case_insensitive = false, -- used when sorting files and directories in the tree
 		sort_function = nil, -- use a custom function for sorting files and directories in the tree
@@ -37,7 +42,7 @@ M.setup = function()
 			icon = {
 				folder_closed = "",
 				folder_open = "",
-				folder_empty = "ﰊ",
+				folder_empty = "󰜌",
 				-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 				-- then these will never be used.
 				default = "*",
@@ -58,16 +63,40 @@ M.setup = function()
 					added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
 					modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 					deleted = "✖", -- this can only be used in the git_status source
-					renamed = "", -- this can only be used in the git_status source
+					renamed = "󰁕", -- this can only be used in the git_status source
 					-- Status type
 					untracked = "",
 					ignored = "",
-					unstaged = "",
+					unstaged = "󰄱",
 					staged = "",
 					conflict = "",
 				},
 			},
+			-- If you don't want to use these columns, you can set `enabled = false` for each of them individually
+			file_size = {
+				enabled = true,
+				required_width = 64, -- min width of window required to show this column
+			},
+			type = {
+				enabled = true,
+				required_width = 122, -- min width of window required to show this column
+			},
+			last_modified = {
+				enabled = true,
+				required_width = 88, -- min width of window required to show this column
+			},
+			created = {
+				enabled = true,
+				required_width = 110, -- min width of window required to show this column
+			},
+			symlink_target = {
+				enabled = false,
+			},
 		},
+		-- A list of functions, each representing a global custom command
+		-- that will be available in all sources (if not overridden in `opts[source_name].commands`)
+		-- see `:h neo-tree-custom-commands-global`
+		commands = {},
 		window = {
 			position = "left",
 			width = 40,
@@ -82,11 +111,11 @@ M.setup = function()
 				},
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",
-				["<esc>"] = "revert_preview",
+				["<esc>"] = "cancel", -- close preview or floating neo-tree window
 				["P"] = { "toggle_preview", config = { use_float = true } },
 				["l"] = "focus_preview",
-				["s"] = "open_split",
-				["v"] = "open_vsplit",
+				["S"] = "open_split",
+				["s"] = "open_vsplit",
 				-- ["S"] = "split_with_window_picker",
 				-- ["s"] = "vsplit_with_window_picker",
 				["t"] = "open_tabnew",
@@ -97,7 +126,7 @@ M.setup = function()
 				["C"] = "close_node",
 				-- ['C'] = 'close_all_subnodes',
 				["z"] = "close_all_nodes",
-				["Z"] = "expand_all_nodes",
+				--["Z"] = "expand_all_nodes",
 				["a"] = {
 					"add",
 					-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -125,6 +154,7 @@ M.setup = function()
 				["?"] = "show_help",
 				["<"] = "prev_source",
 				[">"] = "next_source",
+				["i"] = "show_file_details",
 			},
 		},
 		nesting_rules = {},
@@ -152,8 +182,11 @@ M.setup = function()
 					--".null-ls_*",
 				},
 			},
-			follow_current_file = false, -- This will find and focus the file in the active buffer every
-			-- time the current file is changed while the tree is open.
+			follow_current_file = {
+				enabled = false, -- This will find and focus the file in the active buffer every time
+				--               -- the current file is changed while the tree is open.
+				leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+			},
 			group_empty_dirs = false, -- when true, empty folders will be grouped together
 			hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
 			-- in whatever position is specified in window.position
@@ -167,7 +200,7 @@ M.setup = function()
 					["<bs>"] = "navigate_up",
 					["."] = "set_root",
 					["H"] = "toggle_hidden",
-					["S"] = "fuzzy_finder",
+					["/"] = "fuzzy_finder",
 					["D"] = "fuzzy_finder_directory",
 					["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
 					-- ["D"] = "fuzzy_sorter_directory",
@@ -175,17 +208,31 @@ M.setup = function()
 					["<c-x>"] = "clear_filter",
 					["[g"] = "prev_git_modified",
 					["]g"] = "next_git_modified",
+					["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+					["oc"] = { "order_by_created", nowait = false },
+					["od"] = { "order_by_diagnostics", nowait = false },
+					["og"] = { "order_by_git_status", nowait = false },
+					["om"] = { "order_by_modified", nowait = false },
+					["on"] = { "order_by_name", nowait = false },
+					["os"] = { "order_by_size", nowait = false },
+					["ot"] = { "order_by_type", nowait = false },
 				},
-				fuzzy_finder_mappings = {
-					-- define keymaps for filter popup window in fuzzy_finder_mode
+				fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+					["<down>"] = "move_cursor_down",
 					["<C-j>"] = "move_cursor_down",
+					["<up>"] = "move_cursor_up",
 					["<C-k>"] = "move_cursor_up",
 				},
 			},
+
+			commands = {}, -- Add a custom command or override a global one using the same function name
 		},
 		buffers = {
-			follow_current_file = true, -- This will find and focus the file in the active buffer every
-			-- time the current file is changed while the tree is open.
+			follow_current_file = {
+				enabled = true, -- This will find and focus the file in the active buffer every time
+				--              -- the current file is changed while the tree is open.
+				leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+			},
 			group_empty_dirs = true, -- when true, empty folders will be grouped together
 			show_unloaded = true,
 			window = {
@@ -193,6 +240,13 @@ M.setup = function()
 					["bd"] = "buffer_delete",
 					["<bs>"] = "navigate_up",
 					["."] = "set_root",
+					["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+					["oc"] = { "order_by_created", nowait = false },
+					["od"] = { "order_by_diagnostics", nowait = false },
+					["om"] = { "order_by_modified", nowait = false },
+					["on"] = { "order_by_name", nowait = false },
+					["os"] = { "order_by_size", nowait = false },
+					["ot"] = { "order_by_type", nowait = false },
 				},
 			},
 		},
@@ -207,15 +261,31 @@ M.setup = function()
 					["gc"] = "git_commit",
 					["gp"] = "git_push",
 					["gg"] = "git_commit_and_push",
+					["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+					["oc"] = { "order_by_created", nowait = false },
+					["od"] = { "order_by_diagnostics", nowait = false },
+					["om"] = { "order_by_modified", nowait = false },
+					["on"] = { "order_by_name", nowait = false },
+					["os"] = { "order_by_size", nowait = false },
+					["ot"] = { "order_by_type", nowait = false },
 				},
 			},
 		},
 	})
 end
 
-M.keys = {
-	{ "<leader>t", "<cmd>NeoTreeRevealToggle<cr>", desc = "NeoTree toggle", { silent = true, noremap = true } },
-	{ "<leader>T", "<cmd>NeoTreeReveal<cr>", desc = "Neotree reveal", { silent = true, noremap = true } },
+local M = {
+	"nvim-neo-tree/neo-tree.nvim",
+	version = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"MunifTanjim/nui.nvim",
+	},
+	config = neotree_setup,
+	keys = {
+		{ "<leader>t", "<cmd>Neotree reveal toggle<cr>", desc = "NeoTree toggle", { silent = true, noremap = true } },
+	},
 }
 
 return M

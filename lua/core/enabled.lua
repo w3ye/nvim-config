@@ -22,6 +22,7 @@ local M = {
 	diffview = On,
 	lazygit = On,
 	dap = false,
+	treesitter = On,
 	-- ui
 	blankline = On,
 	mini = On,
@@ -37,6 +38,13 @@ local M = {
 	which_key = On,
 	harpoon = On,
 	bqf = On,
+	-- lang
+	go = On,
+	neotetst = false,
+	null_ls = On,
+	-- lsp
+	cmp = On,
+	lsp = On,
 }
 
 return M

@@ -64,6 +64,12 @@ local minor_setup = {
 		"kevinhwang91/nvim-bqf",
 		enabled = enabled.bqf,
 	},
+	{
+		"junegunn/fzf",
+		build = function()
+			vim.fn["fzf#install"]()
+		end,
+	},
 }
 local M = {
 	minor_setup,

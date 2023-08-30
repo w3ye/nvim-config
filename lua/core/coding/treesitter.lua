@@ -1,5 +1,5 @@
-local M = {}
-M.setup = function()
+local enabled = require("core.enabled").treesitter
+local treesitter_setup = function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"lua",
@@ -50,5 +50,18 @@ M.setup = function()
 		},
 	})
 end
+local M = {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	enabled = enabled,
+	dependencies = {
+		"nvim-treesitter/playground",
+	},
+	config = treesitter_setup,
+	{
+		"HiPhish/nvim-ts-rainbow2",
+		enabled = enabled,
+	},
+}
 
 return M
