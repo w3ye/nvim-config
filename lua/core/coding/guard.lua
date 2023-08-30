@@ -1,7 +1,7 @@
 local M = {
 	"nvimdev/guard.nvim",
 	lazy = false,
-	enable = true,
+	enabled = true,
 	config = function()
 		local ft = require("guard.filetype")
 
@@ -12,17 +12,17 @@ local M = {
 		ft("lua"):fmt("stylua")
 
 		-- use lsp to format first then use golines to format
-		ft("go"):fmt("lsp"):append("golines") --[[ :lint("golangci") ]]
+		ft("go"):fmt("lsp") --[[ :lint("golangci") ]]
 
 		-- multiple files register
-		ft("typescript,javascript,json,typescriptreact:"):fmt("prettier")
-
+		ft("typescript,javascript,typescriptreact"):fmt("prettier")
+		ft("json"):fmt("prettier")
 		-- call setup LAST
 		require("guard").setup({
 			-- the only options for the setup function
 			fmt_on_save = true,
 			-- Use lsp if no formatter was defined for this filetype
-			lsp_as_default_formatter = true,
+			lsp_as_default_formatter = false,
 		})
 	end,
 }

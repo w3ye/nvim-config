@@ -105,6 +105,10 @@ local M = {
 	config = function()
 		require("lspsaga").setup({
 			request_timeout = 3000,
+			outline = {
+				auto_preview = false,
+				layout = "float",
+			},
 			diagnostic = {
 				max_height = 0.8,
 				keys = {

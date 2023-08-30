@@ -33,7 +33,7 @@ local treesitter_setup = function()
 			},
 		},
 		rainbow = {
-			enable = true,
+			enable = false,
 		},
 		context_commentstring = {
 			enable = true,
