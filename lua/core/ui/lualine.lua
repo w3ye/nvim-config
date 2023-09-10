@@ -39,6 +39,10 @@ local M = {
 				theme = bubbles_theme,
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
+				disabled_filetypes = {
+					statusline = { "NvimTree", "packer", "dap" },
+					winbar = { "NvimTree", "packer", "dap" },
+				},
 			},
 			sections = {
 				lualine_a = {

@@ -14,11 +14,35 @@ local M = {
 		end,
 		enabled = _G.enabled.dap,
 		keys = {
-			{ "<leader>bt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
-			{ "<leader>bc", "<cmd>lua require'dap'.continue()<cr>", desc = "Debug continue" },
+			{ "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
+			{ "<F5>", "<cmd>lua require'dap'.continue()<cr>", desc = "Debug continue" },
 			{ "<F7>", "<cmd>lua require'dap'.step_into()<cr>", desc = "Debug step into" },
 			{ "<F8>", "<cmd>lua require'dap'.step_over()<cr>", desc = "Debug step over" },
-			{ "<leader>br", "<cmd>lua require'dap'.repl.open()<cr>", desc = "Dap open" },
+			{ "<leader>bu", "<cmd>DapUiToggle<cr>", desc = "Dap ui toggle" },
+			{
+				"<Leader>bh",
+				function()
+					require("dap.ui.widgets").hover()
+				end,
+				desc = "widget hover",
+				mode = { "n", "v" },
+			},
+			{
+
+				"<Leader>bp",
+				function()
+					require("dap.ui.widgets").preview()
+				end,
+				desc = "widget preview",
+				mode = { "n", "v" },
+			},
+			{
+				"<Leader>bs",
+				function()
+					local widgets = require("dap.ui.widgets")
+					widgets.centered_float(widgets.scopes)
+				end,
+			},
 		},
 	},
 	{
