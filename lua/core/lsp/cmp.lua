@@ -15,7 +15,6 @@ local M = {
 			}
 
 			cmp.setup({
-				view = "custom",
 				sources = cmp.config.sources({
 					{ name = "copilot" },
 					{ name = "luasnip" }, -- For luasnip users.

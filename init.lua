@@ -1,4 +1,4 @@
-require("plugin")
+require("init")
 require("keymaps.keymaps")
 local vim = vim
 

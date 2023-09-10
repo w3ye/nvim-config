@@ -11,6 +11,7 @@ local guard = require("core.coding.guard")
 local treesitter = require("core.coding.treesitter")
 local telescope = require("core.coding.telescope")
 
+print(_G.env)
 local M = {
 	autopairs,
 	comment,
