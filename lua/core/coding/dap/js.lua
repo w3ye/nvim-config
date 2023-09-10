@@ -6,7 +6,7 @@ end
 local M = {
 	dap = {
 		"mxsdev/nvim-dap-vscode-js",
-		enabled = require("core.enabled").dap,
+		enabled = _G.enabled.dap,
 		config = function()
 			require("dap-vscode-js").setup({
 				-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"

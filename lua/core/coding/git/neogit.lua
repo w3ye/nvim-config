@@ -10,7 +10,7 @@ local M = {
 			},
 		})
 	end,
-	enabled = require("core.enabled").neogit,
+	enabled = _G.enabled.neogit,
 	keys = {
 		{ "<leader>g", "<cmd>Neogit<cr>", desc = "Neogit open" },
 	},

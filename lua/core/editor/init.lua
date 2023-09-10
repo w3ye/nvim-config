@@ -1,4 +1,4 @@
-local enabled = require("core.enabled")
+local enabled = _G.enabled
 local bookmarks = require("core.editor.bookmarks")
 local minor_setup = {
 	"gpanders/editorconfig.nvim",

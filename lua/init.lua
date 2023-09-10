@@ -1,4 +1,5 @@
 _G.env = require("env")
+_G.enabled = require("enabled")
 
 vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

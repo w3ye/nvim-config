@@ -1,4 +1,4 @@
-local enabled = require("core.enabled").cmp
+local enabled = _G.enabled.cmp
 local M = {
 	{ "rafamadriz/friendly-snippets", enabled = enabled },
 	"saadparwaiz1/cmp_luasnip",

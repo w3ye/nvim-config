@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 local M = {
 	"echasnovski/mini.nvim",
-	enabled = require("core.enabled").mini,
+	enabled = _G.enabled.mini,
 	config = function()
 		require("mini.indentscope").setup({
 			symbol = "│",

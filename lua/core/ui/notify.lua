@@ -1,6 +1,6 @@
 local M = {
 	"rcarriga/nvim-notify",
-	enabled = require("core.enabled").notify,
+	enabled = _G.enabled.notify,
 	config = function()
 		vim.opt.termguicolors = true
 		require("notify").setup({

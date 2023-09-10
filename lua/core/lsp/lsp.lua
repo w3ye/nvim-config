@@ -26,7 +26,7 @@ end
 
 local M = {
 	"neovim/nvim-lspconfig",
-	enabled = require("core.enabled").lsp,
+	enabled = _G.enabled.lsp,
 	config = function()
 		handlers_setup()
 

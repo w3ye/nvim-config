@@ -1,7 +1,7 @@
 local M = {
 	{
 		"ray-x/go.nvim",
-		enabled = require("core.enabled").go,
+		enabled = _G.enabled.go,
 		dependencies = { -- optional packages
 			"ray-x/guihua.lua",
 			"neovim/nvim-lspconfig",
@@ -28,7 +28,7 @@ local M = {
 	},
 	{
 		"nvim-neotest/neotest",
-		enabled = require("core.enabled").go,
+		enabled = _G.enabled.go,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",

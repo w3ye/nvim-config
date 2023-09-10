@@ -11,7 +11,7 @@ local M = {
 			},
 		})
 	end,
-	enabled = require("core.enabled").blankline,
+	enabled = _G.enabled.blankline,
 }
 
 return M

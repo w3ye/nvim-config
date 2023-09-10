@@ -1,4 +1,4 @@
-local enabled = require("core.enabled").telescope
+local enabled = _G.enabled.telescope
 
 local telescope_setup = function()
 	local actions = require("telescope.actions")

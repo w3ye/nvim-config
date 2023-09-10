@@ -2,7 +2,7 @@ local M = {
 	"glepnir/dashboard-nvim",
 	lazy = false,
 	event = "VimEnter",
-	enabled = require("core.enabled").dashboard,
+	enabled = _G.enabled.dashboard,
 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	config = function()
 		require("dashboard").setup({

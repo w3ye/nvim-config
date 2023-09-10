@@ -1,7 +1,7 @@
 local M = {
 	"kdheepak/lazygit.nvim",
 	lazy = false,
-	enabled = require("core.enabled").lazygit,
+	enabled = _G.enabled.lazygit,
 	keys = {
 		{
 			"<leader>lg",

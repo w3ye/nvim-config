@@ -495,7 +495,7 @@ end
 local M = {
 	"sindrets/diffview.nvim",
 	config = setup,
-	enabled = require("core.enabled").diffview,
+	enabled = _G.enabled.diffview,
 	keys = {
 		{
 			"<leader>dv",

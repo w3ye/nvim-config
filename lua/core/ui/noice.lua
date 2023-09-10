@@ -69,7 +69,7 @@ local M = {
 			routes = routes,
 		})
 	end,
-	enabled = require("core.enabled").noice,
+	enabled = _G.enabled.noice,
 	keys = {
 		{
 			"<leader>nl",

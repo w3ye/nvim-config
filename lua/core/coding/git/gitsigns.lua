@@ -95,7 +95,7 @@ end
 
 local M = {
 	"lewis6991/gitsigns.nvim",
-	enabled = require("core.enabled").gitsigns,
+	enabled = _G.enabled.gitsigns,
 	config = setup,
 }
 

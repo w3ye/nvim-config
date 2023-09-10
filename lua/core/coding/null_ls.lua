@@ -4,7 +4,7 @@ local M = {
 	"jose-elias-alvarez/null-ls.nvim",
 	event = "LspAttach",
 	lazy = false,
-	enable = require("core.enabled").null_ls,
+	enable = _G.enabled.null_ls,
 	config = function()
 		local formatting = null_ls.builtins.formatting
 		-- local diagnostics = null_ls.builtins.diagnostics

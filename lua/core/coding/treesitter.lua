@@ -1,4 +1,4 @@
-local enabled = require("core.enabled").treesitter
+local enabled = _G.enabled.treesitter
 local treesitter_setup = function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {

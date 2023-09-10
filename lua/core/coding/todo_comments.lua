@@ -60,7 +60,7 @@ end
 local M = {
 	"folke/todo-comments.nvim",
 	config = setup,
-	enabled = require("core.enabled").todo_comments,
+	enabled = _G.enabled.todo_comments,
 }
 
 return M

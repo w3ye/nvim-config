@@ -1,6 +1,6 @@
 local M = {
 	"abecodes/tabout.nvim",
-	enabled = require("core.enabled").tabout,
+	enabled = _G.enabled.tabout,
 	config = function()
 		require("tabout").setup({
 			tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable

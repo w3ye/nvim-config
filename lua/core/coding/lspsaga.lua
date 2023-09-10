@@ -101,7 +101,7 @@ local keys = {
 
 local M = {
 	"glepnir/lspsaga.nvim",
-	enabled = require("core.enabled").lspsaga,
+	enabled = _G.enabled.lspsaga,
 	config = function()
 		require("lspsaga").setup({
 			request_timeout = 3000,

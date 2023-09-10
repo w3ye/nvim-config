@@ -4,7 +4,7 @@ local diffview = require("core.coding.git.diffview")
 local lazygit = require("core.coding.git.lazygit")
 
 local M = {
-	{ "tpope/vim-fugitive", enabled = require("core.enabled").fugitive },
+	{ "tpope/vim-fugitive", enabled = _G.enabled.fugitive },
 	gitsigns,
 	neogit,
 	diffview,

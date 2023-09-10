@@ -1,6 +1,6 @@
 local M = {
 	"windwp/nvim-autopairs",
-	enabled = require("core.enabled").autopairs,
+	enabled = _G.enabled.autopairs,
 	config = function()
 		require("nvim-autopairs").setup({
 			fast_wrap = {

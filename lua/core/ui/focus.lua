@@ -1,6 +1,6 @@
 local M = {
 	"nvim-focus/focus.nvim",
-	enable = require("core.enabled").focus,
+	enable = _G.enabled.focus,
 	config = function()
 		require("focus").setup({
 			enable = true,

@@ -32,7 +32,7 @@ local bubbles_theme = {
 local M = {
 	"nvim-lualine/lualine.nvim",
 	lazy = false,
-	enabled = require("core.enabled").lualine,
+	enabled = _G.enabled.lualine,
 	config = function()
 		require("lualine").setup({
 			options = {
