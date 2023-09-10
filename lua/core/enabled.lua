@@ -21,7 +21,7 @@ local M = {
 	noegit = On,
 	diffview = On,
 	lazygit = On,
-	dap = false,
+	dap = On,
 	treesitter = On,
 	telescope = On,
 	-- ui
