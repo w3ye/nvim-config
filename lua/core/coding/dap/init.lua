@@ -1,10 +1,17 @@
-local js_adapter = require("core.coding.dap.js")
+local js = require("core.coding.dap.js").dap
+local js_adapter = require("core.coding.dap.js").adapter
+local js_configurations = require("core.coding.dap.js").configurations
 
 local M = {
 	{
 		"mfussenegger/nvim-dap",
 		lazy = true,
-		config = require("core.coding.debugger").setup,
+		-- config = require("core.coding.debugger").setup(),
+		config = function()
+			require("core.coding.debugger").setup()
+			js_adapter()
+			js_configurations()
+		end,
 		enabled = require("core.enabled").dap,
 		keys = {
 			{ "<leader>bt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
@@ -38,7 +45,7 @@ local M = {
 			{ "<leader>ui", "<cmd>lua require'dapui'.toggle()<cr>", desc = "Toggle DAP UI" },
 		},
 	},
-	js_adapter,
+	js,
 }
 
 return M
