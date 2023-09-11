@@ -1,4 +1,10 @@
-_G.env = require("env")
+local env, envOk = pcall(require, "env")
+if !envOk then
+    print("env.lua not found, please copy env.example.lua to env.lua and set your environment variables")
+    env = require("env.example")
+end
+
+_G.env = env
 _G.enabled = require("enabled")
 
 vim.g.mapleader = " "
