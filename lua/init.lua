@@ -1,5 +1,5 @@
 local env, envOk = pcall(require, "env")
-if !envOk then
+if not envOk then
     print("env.lua not found, please copy env.example.lua to env.lua and set your environment variables")
     env = require("env.example")
 end
