@@ -1,11 +1,10 @@
+_G.enabled = require("enabled")
 local envOk, env = pcall(require, "env")
 if not envOk then
 	print("env.lua not found, please copy env.example.lua to env.lua and set your environment variables")
-	env = require("env.example")
+	_G.enabled.dap = false
 end
-
 _G.env = env
-_G.enabled = require("enabled")
 
 vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

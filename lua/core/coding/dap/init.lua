@@ -1,6 +1,7 @@
 local js = require("core.coding.dap.js").dap
 local js_adapter = require("core.coding.dap.js").adapter
 local js_configurations = require("core.coding.dap.js").configurations
+local enabled = _G.enabled.dap
 
 local M = {
 	{
@@ -12,7 +13,7 @@ local M = {
 			js_adapter()
 			js_configurations()
 		end,
-		enabled = _G.enabled.dap,
+		enabled = enabled,
 		keys = {
 			{ "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
 			{ "<F5>", "<cmd>lua require'dap'.continue()<cr>", desc = "Debug continue" },
@@ -48,7 +49,7 @@ local M = {
 	{
 		"rcarriga/nvim-dap-ui",
 		lazy = true,
-		enabled = _G.enabled.dap,
+		enabled = enabled,
 		dependencies = { "mfussenegger/nvim-dap" },
 		config = function()
 			require("dapui").setup()
