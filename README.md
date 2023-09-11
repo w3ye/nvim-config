@@ -10,5 +10,6 @@ git clone https://github.com/microsoft/vscode-js-debug
 cd vscode-js-debug
 npm install --legacy-peer-deps
 npx gulp vsDebugServerBundle
-mv dist out`
+mv dist out
+```
 2. Add the path to `env.lua`
