@@ -14,6 +14,7 @@ local treesitter_setup = function()
 			"bash",
 			"markdown",
 			"markdown_inline",
+			"http",
 		},
 		auto_install = true,
 		sync_install = true,
