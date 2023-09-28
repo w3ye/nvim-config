@@ -5,7 +5,7 @@
 
 local M = {
 	"rest-nvim/rest.nvim",
-	lazy = true,
+	lazy = false,
 	enabled = _G.enabled.rest_client,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
@@ -42,7 +42,7 @@ local M = {
 			},
 			-- Jump to request line on run
 			jump_to_request = false,
-			env_file = ".env",
+			env_file = "env.json",
 			custom_dynamic_variables = {},
 			yank_dry_run = true,
 		})

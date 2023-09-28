@@ -33,6 +33,7 @@ local M = {
 	which_key = true,
 	harpotrue = true,
 	bqf = true,
+    guard = true,
 	-- lang
 	go = true,
 	neotetst = false,
