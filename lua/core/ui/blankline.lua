@@ -1,16 +1,15 @@
-local highlight = {
-	"RainbowRed",
-	"RainbowYellow",
-	"RainbowBlue",
-	"RainbowOrange",
-	"RainbowGreen",
-	"RainbowViolet",
-	"RainbowCyan",
-}
-
 local M = {
 	"lukas-reineke/indent-blankline.nvim",
 	config = function()
+		local highlight = {
+			"RainbowRed",
+			"RainbowYellow",
+			"RainbowBlue",
+			"RainbowOrange",
+			"RainbowGreen",
+			"RainbowViolet",
+			"RainbowCyan",
+		}
 		local hooks = require("ibl.hooks")
 		-- create the highlight groups in the highlight setup hook, so they are reset
 		-- every time the colorscheme changes
@@ -24,28 +23,7 @@ local M = {
 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 		end)
 
-		hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-		require("ibl").setup({
-			-- show_trailing_blankline_indent = false,
-			-- show_current_context = false,
-			indent = {
-				char = "|",
-				tab_char = { "a", "b", "c" },
-				smart_indent_cap = true,
-				priority = 2,
-				highlight = highlight,
-			},
-		})
-		require("ibl").overwrite({
-			exclude = {
-				filetypes = {
-					"startify",
-					"help",
-					"dashboard",
-				},
-			},
-		})
+		require("ibl").setup({ indent = { highlight = highlight } })
 	end,
 	enabled = _G.enabled.blankline,
 }

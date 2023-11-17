@@ -15,17 +15,17 @@ local M = {
 	noegit = true,
 	diffview = true,
 	lazygit = true,
-	dap = true,
+	dap = false, -- false
 	treesitter = true,
 	telescope = true,
 	-- ui
-	blankline = true,
+	blankline = false,
 	mini = true,
 	lualine = true,
 	focus = true,
 	dashboard = true,
 	noice = true,
-	notify = false,
+	notify = false, -- false
 	--editor
 	lastplace = true,
 	flit = true,
@@ -33,10 +33,10 @@ local M = {
 	which_key = true,
 	harpotrue = true,
 	bqf = true,
-    guard = true,
+	guard = true,
 	-- lang
 	go = true,
-	neotetst = false,
+	neotetst = false, -- false
 	null_ls = true,
 	rest_client = true,
 	-- lsp

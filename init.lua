@@ -9,6 +9,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
+vim.diagnostic.config({ virtual_text = false })
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -77,6 +78,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.opt.termguicolors = true
 vim.opt.list = true
+vim.cmd("set nolist")
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

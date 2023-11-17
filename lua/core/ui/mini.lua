@@ -12,6 +12,7 @@ local M = {
 			symbol = "│",
 			options = { try_as_border = true },
 		})
+		vim.cmd("hi MiniIndentscopeSymbol guifg=#C678DD")
 	end,
 }
 
