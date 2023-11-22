@@ -33,7 +33,8 @@ local M = {
 	which_key = true,
 	harpotrue = true,
 	bqf = true,
-	guard = true,
+	guard = false,
+	conform_formatter = true,
 	-- lang
 	go = true,
 	neotetst = false, -- false
