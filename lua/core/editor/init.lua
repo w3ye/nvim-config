@@ -70,6 +70,7 @@ local minor_setup = {
 			vim.fn["fzf#install"]()
 		end,
 	},
+	{ "duane9/nvim-rg" },
 }
 local M = {
 	minor_setup,
