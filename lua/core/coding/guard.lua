@@ -2,7 +2,7 @@ local M = {
 	{
 		"nvimdev/guard.nvim",
 		lazy = false,
-        dependencies = {"nvimdev/guard-collection"},
+		dependencies = { "nvimdev/guard-collection" },
 		enabled = _G.enabled.guard,
 		config = function()
 			local ft = require("guard.filetype")
@@ -27,6 +27,25 @@ local M = {
 				lsp_as_default_formatter = false,
 			})
 		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		enabled = _G.enabled.conform_formatter,
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					javascript = { "prettier" },
+					go = { "gofmt" },
+					rust = { "rustfmt" },
+				},
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_fallback = true,
+				},
+			})
+		end,
+		opts = {},
 	},
 	{
 		"MunifTanjim/prettier.nvim",
