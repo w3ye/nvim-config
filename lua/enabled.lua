@@ -29,7 +29,7 @@ local M = {
 	--editor
 	lastplace = true,
 	flit = true,
-	leap = true,
+	flash = true,
 	which_key = true,
 	harpotrue = true,
 	bqf = true,
