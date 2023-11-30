@@ -14,7 +14,7 @@ local M = {
 				signcolumn = false, -- Display signcolumn in the focussed window only
 			},
 		})
-		local ignore_filetypes = { "neo-tree", "DiffviewFiles" }
+		local ignore_filetypes = { "neo-tree", "DiffviewFiles", "fugitiveblame" }
 		local ignore_buftypes = { "nofile", "prompt", "popup", "DiffviewFiles" }
 
 		local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
