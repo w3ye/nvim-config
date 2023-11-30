@@ -9,6 +9,10 @@ local M = {
 			"rafamadriz/friendly-snippets",
 			"saadparwaiz1/cmp_luasnip",
 		},
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
+		end,
 	},
 }
+
 return M
