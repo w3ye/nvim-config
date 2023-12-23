@@ -8,6 +8,7 @@ local noice = require("core.ui.noice")
 local notify = require("core.ui.notify")
 local barbar = require("core.ui.barbar")
 local neotree = require("core.ui.neotree")
+local window_picker = require("core.ui.window-picker")
 
 local M = {
 	themes,
@@ -16,13 +17,7 @@ local M = {
 	lualine,
 	"MunifTanjim/nui.nvim",
 	"nvim-tree/nvim-web-devicons",
-	{
-		"s1n7ax/nvim-window-picker",
-		version = "v1.*",
-		config = function()
-			require("window-picker").setup({})
-		end,
-	},
+	window_picker,
 	focus,
 	dashboard,
 	noice,
