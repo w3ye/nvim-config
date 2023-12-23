@@ -108,6 +108,7 @@ local M = {
 			outline = {
 				auto_preview = false,
 				layout = "float",
+				detail = false,
 			},
 			diagnostic = {
 				max_height = 0.8,
