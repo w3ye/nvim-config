@@ -1,5 +1,7 @@
 local enabled = _G.enabled
 local bookmarks = require("core.editor.bookmarks")
+local oil = require("core.editor.oil")
+
 local minor_setup = {
 	"gpanders/editorconfig.nvim",
 	{
@@ -73,6 +75,7 @@ local minor_setup = {
 local M = {
 	minor_setup,
 	bookmarks,
+	oil,
 }
 
 return M
