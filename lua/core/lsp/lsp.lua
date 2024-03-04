@@ -1,3 +1,12 @@
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = "",
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
 local handlers_setup = function()
 	-- Setup language servers.
 	local lspconfig = require("lspconfig")
@@ -45,6 +54,12 @@ local handlers_setup = function()
 							includeInlayFunctionLikeReturnTypeHints = true,
 							includeInlayEnumMemberValueHints = true,
 						},
+					},
+				},
+				commands = {
+					OrganizeImports = {
+						organize_imports,
+						description = "Organize Imports",
 					},
 				},
 			})
