@@ -9,9 +9,9 @@ local M = {
 		enabled = _G.enabled.dap,
 		config = function()
 			require("dap-vscode-js").setup({
-				-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+				node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
 				debugger_path = _G.env.js_debugger_path, -- Path to vscode-js-debug installation.
-				-- debugger_cmd = { "extension" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+				debugger_cmd = { "extension" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
 				adapters = {
 					"chrome",
 					"pwa-node",

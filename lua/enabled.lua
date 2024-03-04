@@ -15,7 +15,7 @@ local M = {
 	noegit = true,
 	diffview = true,
 	lazygit = true,
-	dap = false, -- false
+	dap = true, -- false
 	treesitter = true,
 	telescope = true,
 	-- ui
@@ -33,7 +33,6 @@ local M = {
 	which_key = true,
 	harpotrue = true,
 	bqf = true,
-	guard = false,
 	conform_formatter = true,
 	-- lang
 	go = true,
