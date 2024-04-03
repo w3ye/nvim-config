@@ -1,4 +1,5 @@
 local rest = require("core.language.rest-client")
+local ts_tools = require("core.language.ts-tools")
 
 local M = {
 	{
@@ -44,6 +45,7 @@ local M = {
 		event = "BufEnter *.spec.ts",
 	},
 	rest,
+	ts_tools,
 }
 
 return M
