@@ -9,9 +9,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
-vim.diagnostic.config({
-	virtual_text = false,
-})
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -86,8 +83,15 @@ local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	vim.diagnostic.config({
+		virtual_text = false,
+	})
 end
 
-vim.api.nvim_create_user_command("Cppath", function()
+vim.api.nvim_create_user_command("Crpath", function()
 	vim.api.nvim_call_function("setreg", { "+", vim.fn.fnamemodify(vim.fn.expand("%"), ":.") })
+end, {})
+
+vim.api.nvim_create_user_command("Cfname", function()
+	vim.api.nvim_call_function("setreg", { "+", vim.fn.expand("%:t") })
 end, {})
