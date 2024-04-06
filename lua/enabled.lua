@@ -37,7 +37,7 @@ local M = {
 	-- lang
 	go = true,
 	neotetst = false, -- false
-	null_ls = true,
+	null_ls = false,
 	rest_client = true,
 	-- lsp
 	cmp = true,

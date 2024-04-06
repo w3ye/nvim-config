@@ -32,9 +32,18 @@ local handlers_setup = function()
 			})
 		end,
 		["tsserver"] = function()
-			lspconfig.tsserver.setup({
-				enabled = false,
+			lspconfig.eslint.setup({
+				command = {
+					LintFile = function()
+						return {
+							command = "eslint",
+							args = { "--fix", vim.api.nvim_buf_get_name(0) },
+							isStdout = true,
+						}
+					end,
+				},
 			})
+			return { enabled = false }
 		end,
 		-- ["tsserver"] = function()
 		-- 	lspconfig.tsserver.setup({
