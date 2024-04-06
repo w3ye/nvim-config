@@ -4,6 +4,13 @@ local M = {
 	event = "VimEnter",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	config = function()
+		require("barbar").setup({
+			icons = {
+				pinned = { button = "", filename = true },
+			},
+		})
+	end,
 	keys = {
 		-- Move to previous/next
 		{ "<M-,>", "<Cmd>BufferPrevious<CR>", opts },
@@ -43,6 +50,7 @@ local M = {
 		{ "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", opts },
 		{ "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts },
 		{ "<leader>D", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts },
+		{ "<leader>db", "<Cmd>BufferCloseAllButVisible<CR>", opts },
 	},
 }
 
