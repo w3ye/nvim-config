@@ -1,11 +1,11 @@
-local function organize_imports()
-	local params = {
-		command = "_typescript.organizeImports",
-		arguments = { vim.api.nvim_buf_get_name(0) },
-		title = "",
-	}
-	vim.lsp.buf.execute_command(params)
-end
+-- local function organize_imports()
+-- 	local params = {
+-- 		command = "_typescript.organizeImports",
+-- 		arguments = { vim.api.nvim_buf_get_name(0) },
+-- 		title = "",
+-- 	}
+-- 	vim.lsp.buf.execute_command(params)
+-- end
 
 local handlers_setup = function()
 	-- Setup language servers.
@@ -15,7 +15,9 @@ local handlers_setup = function()
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
 		function(server_name) -- default handler (optional)
-			require("lspconfig")[server_name].setup({})
+			if server_name == "tsserver" then
+				require("lspconfig")[server_name].setup({})
+			end
 		end,
 		-- Next, you can provide targeted overrides for specific servers.
 		["lua_ls"] = function()
@@ -31,39 +33,44 @@ local handlers_setup = function()
 		end,
 		["tsserver"] = function()
 			lspconfig.tsserver.setup({
-				single_file_support = false,
-				settings = {
-					typescript = {
-						inlayHints = {
-							includeInlayParameterNameHints = "literal",
-							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-							includeInlayFunctionParameterTypeHints = true,
-							includeInlayVariableTypeHints = false,
-							includeInlayPropertyDeclarationTypeHints = true,
-							includeInlayFunctionLikeReturnTypeHints = true,
-							includeInlayEnumMemberValueHints = true,
-						},
-					},
-					javascript = {
-						inlayHints = {
-							includeInlayParameterNameHints = "all",
-							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-							includeInlayFunctionParameterTypeHints = true,
-							includeInlayVariableTypeHints = true,
-							includeInlayPropertyDeclarationTypeHints = true,
-							includeInlayFunctionLikeReturnTypeHints = true,
-							includeInlayEnumMemberValueHints = true,
-						},
-					},
-				},
-				commands = {
-					OrganizeImports = {
-						organize_imports,
-						description = "Organize Imports",
-					},
-				},
+				enabled = false,
 			})
 		end,
+		-- ["tsserver"] = function()
+		-- 	lspconfig.tsserver.setup({
+		-- 		single_file_support = false,
+		-- 		settings = {
+		-- 			typescript = {
+		-- 				inlayHints = {
+		-- 					includeInlayParameterNameHints = "literal",
+		-- 					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+		-- 					includeInlayFunctionParameterTypeHints = true,
+		-- 					includeInlayVariableTypeHints = false,
+		-- 					includeInlayPropertyDeclarationTypeHints = true,
+		-- 					includeInlayFunctionLikeReturnTypeHints = true,
+		-- 					includeInlayEnumMemberValueHints = true,
+		-- 				},
+		-- 			},
+		-- 			javascript = {
+		-- 				inlayHints = {
+		-- 					includeInlayParameterNameHints = "all",
+		-- 					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+		-- 					includeInlayFunctionParameterTypeHints = true,
+		-- 					includeInlayVariableTypeHints = true,
+		-- 					includeInlayPropertyDeclarationTypeHints = true,
+		-- 					includeInlayFunctionLikeReturnTypeHints = true,
+		-- 					includeInlayEnumMemberValueHints = true,
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 		commands = {
+		-- 			OrganizeImports = {
+		-- 				organize_imports,
+		-- 				description = "Organize Imports",
+		-- 			},
+		-- 		},
+		-- 	})
+		-- end,
 	}
 	require("mason-lspconfig").setup_handlers(handlers)
 end
