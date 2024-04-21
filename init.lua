@@ -81,11 +81,11 @@ vim.cmd("set nolist")
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 	vim.diagnostic.config({
 		virtual_text = false,
 	})
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 vim.api.nvim_create_user_command("Crpath", function()

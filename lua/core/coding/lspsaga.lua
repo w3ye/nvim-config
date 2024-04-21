@@ -70,7 +70,7 @@ local keys = {
 		end,
 		desc = "goto next error",
 	},
-	{ "<leader>o", "<cmd>Lspsaga outline<CR>", desc = "lspsaga outline" },
+	-- { "<leader>o", "<cmd>Lspsaga outline<CR>", desc = "lspsaga outline" },
 	{
 		"K",
 		"<cmd>Lspsaga hover_doc<CR>",
@@ -105,10 +105,14 @@ local M = {
 	config = function()
 		require("lspsaga").setup({
 			request_timeout = 3000,
+			breadcrumbs = {
+				enabled = false,
+			},
 			outline = {
 				auto_preview = false,
-				layout = "float",
+				layout = "normal",
 				detail = false,
+				max_width = 0.7,
 			},
 			diagnostic = {
 				max_height = 0.8,

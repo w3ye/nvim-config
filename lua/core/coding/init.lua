@@ -10,6 +10,7 @@ local dap = require("core.coding.dap")
 local guard = require("core.coding.guard")
 local treesitter = require("core.coding.treesitter")
 local telescope = require("core.coding.telescope")
+local dropbar = require("core.coding.breadcrumbs")
 
 print(_G.env)
 local M = {
@@ -50,6 +51,7 @@ local M = {
 	guard,
 	treesitter,
 	telescope,
+	dropbar,
 }
 
 return M

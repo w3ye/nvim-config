@@ -7,6 +7,7 @@ local M = {
 	dap = {
 		"mxsdev/nvim-dap-vscode-js",
 		enabled = _G.enabled.dap,
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 		config = function()
 			require("dap-vscode-js").setup({
 				node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"

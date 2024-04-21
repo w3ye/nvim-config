@@ -15,7 +15,7 @@ local handlers_setup = function()
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
 		function(server_name) -- default handler (optional)
-			if server_name == "tsserver" then
+			if server_name ~= "tsserver" then
 				require("lspconfig")[server_name].setup({})
 			end
 		end,
@@ -32,17 +32,7 @@ local handlers_setup = function()
 			})
 		end,
 		["tsserver"] = function()
-			lspconfig.eslint.setup({
-				command = {
-					LintFile = function()
-						return {
-							command = "eslint",
-							args = { "--fix", vim.api.nvim_buf_get_name(0) },
-							isStdout = true,
-						}
-					end,
-				},
-			})
+			lspconfig.eslint.setup({})
 			return { enabled = false }
 		end,
 		-- ["tsserver"] = function()
@@ -87,6 +77,15 @@ end
 local M = {
 	"neovim/nvim-lspconfig",
 	enabled = _G.enabled.lsp,
+	dependencies = {
+		"SmiteshP/nvim-navbuddy",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = { lsp = { auto_attach = true } },
+		keys = { { "<leader>o", mode = { "n" }, "<cmd>Navbuddy<cr>", desc = "toggle Navbuddy" } },
+	},
 	config = function()
 		handlers_setup()
 
