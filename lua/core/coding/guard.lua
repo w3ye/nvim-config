@@ -14,7 +14,7 @@ local M = {
 				},
 				format_on_save = function(bufnr)
 					vim.lsp.buf.format({ bufnr = bufnr })
-					return { timeout_ms = 5000, lsp_fallback = true }
+					return { timeout_ms = 5000, lsp_fallback = false }
 				end,
 			})
 		end,

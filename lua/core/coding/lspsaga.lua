@@ -114,6 +114,9 @@ local M = {
 				detail = false,
 				max_width = 0.7,
 			},
+			hover = {
+				max_width = 0.6,
+			},
 			diagnostic = {
 				max_height = 0.8,
 				keys = {
