@@ -7,6 +7,7 @@ local M = {
 		require("focus").setup({
 			enable = true,
 			autoresize = {
+				enable = false,
 				height_quickfix = 10, -- Set the height of quickfix panel
 			},
 			ui = {
