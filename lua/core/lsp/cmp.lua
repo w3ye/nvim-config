@@ -2,6 +2,9 @@ local enabled = _G.enabled.cmp
 local M = {
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-cmdline",
+		},
 		enabled = enabled,
 		config = function()
 			local cmp = require("cmp")
@@ -102,7 +105,11 @@ local M = {
 				},
 			})
 			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
+				mapping = cmp.mapping.preset.cmdline({
+					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-o>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+				}),
 				sources = cmp.config.sources({
 					{ name = "path" },
 				}, {
