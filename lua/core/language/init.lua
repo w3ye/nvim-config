@@ -1,5 +1,3 @@
-local rest = require("core.language.rest-client")
-
 local M = {
 	{
 		"ray-x/go.nvim",
@@ -43,7 +41,6 @@ local M = {
 	-- 	end,
 	-- 	event = "BufEnter *.spec.ts",
 	-- },
-	rest,
 }
 
 return M
