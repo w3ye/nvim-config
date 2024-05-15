@@ -93,7 +93,7 @@ local M = {
 }
 
 -- vim.keymap.set("c", "<leader>nc", function()
---     require("noice").redirect(vim.fn.getcmdline())
+-- 	require("noice").redirect(vim.fn.getcmdline())
 -- end)
 
 -- vim.keymap.set("n", "<leader>u", function()

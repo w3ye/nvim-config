@@ -25,7 +25,7 @@ local M = {
 	focus = true,
 	dashboard = true,
 	noice = true,
-	notify = false, -- false
+	notify = true, -- false
 	--editor
 	lastplace = true,
 	flit = true,
