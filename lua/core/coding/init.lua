@@ -6,11 +6,12 @@ local trouble = require("core.coding.trouble")
 local enabled = _G.enabled
 local lspsaga = require("core.coding.lspsaga")
 local git = require("core.coding.git")
-local dap = require("core.coding.dap")
+local dap = require("core.coding.debugger.init")
 local guard = require("core.coding.guard")
 local treesitter = require("core.coding.treesitter")
 local telescope = require("core.coding.telescope")
 local dropbar = require("core.coding.breadcrumbs")
+local test = require("core.coding.test")
 
 print(_G.env)
 local M = {
@@ -52,6 +53,7 @@ local M = {
 	treesitter,
 	telescope,
 	dropbar,
+	test,
 }
 
 return M
