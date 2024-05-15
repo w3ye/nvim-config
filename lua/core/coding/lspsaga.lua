@@ -106,7 +106,7 @@ local M = {
 		require("lspsaga").setup({
 			request_timeout = 3000,
 			breadcrumbs = {
-				enabled = false,
+				enable = false,
 			},
 			outline = {
 				auto_preview = false,
@@ -116,6 +116,9 @@ local M = {
 			},
 			hover = {
 				max_width = 0.6,
+			},
+			becon = {
+				enable = true,
 			},
 			diagnostic = {
 				max_height = 0.8,
