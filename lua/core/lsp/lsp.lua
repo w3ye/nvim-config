@@ -129,5 +129,10 @@ local M = {
 			end,
 		})
 	end,
+	opts = {
+		diagnostics = {
+			virtual_text = false,
+		},
+	},
 }
 return M
