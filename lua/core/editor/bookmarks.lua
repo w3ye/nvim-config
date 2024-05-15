@@ -20,6 +20,7 @@ local M = {
 				map("n", "mn", bm.bookmark_next) -- jump to next mark in local buffer
 				map("n", "mp", bm.bookmark_prev) -- jump to previous mark in local buffer
 				map("n", "ml", bm.bookmark_list) -- show marked file list in quickfix window
+				map("n", "mx", bm.bookmark_clear_all) -- show marked file list in quickfix window
 			end,
 		})
 	end,
