@@ -13,7 +13,6 @@ local telescope = require("core.coding.telescope")
 local dropbar = require("core.coding.breadcrumbs")
 local test = require("core.coding.test")
 
-print(_G.env)
 local M = {
 	autopairs,
 	comment,
