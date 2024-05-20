@@ -2,7 +2,7 @@ require("init")
 require("keymaps.keymaps")
 local vim = vim
 
-vim.cmd.colorscheme("kanagawa-wave")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4

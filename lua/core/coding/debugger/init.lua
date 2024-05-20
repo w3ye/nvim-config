@@ -2,7 +2,7 @@ local js = require("core.coding.debugger.js")
 local ui = require("core.coding.debugger.ui")
 local enabled = _G.enabled.dap
 
-function conditional_breakpoint()
+local function conditional_breakpoint()
 	local condition = vim.fn.input("Condition: ")
 	require("dap").set_breakpoint(condition, nil, nil)
 end
