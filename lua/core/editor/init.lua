@@ -2,6 +2,7 @@ local enabled = _G.enabled
 local bookmarks = require("core.editor.bookmarks")
 local oil = require("core.editor.oil")
 local undotree = require("core.editor.undotree")
+local flash = require("core.editor.flash")
 
 local minor_setup = {
 	"gpanders/editorconfig.nvim",
@@ -15,50 +16,6 @@ local minor_setup = {
 				lastplace_open_folds = true,
 			})
 		end,
-	},
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		enabled = _G.enabled.flash,
-		opts = {
-			modes = {
-				search = {
-					enabled = false,
-				},
-			},
-		},
-        -- stylua: ignore
-        keys = {
-            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-            {
-                "<leader>s",
-                mode = { "n", "x", "o" },
-                function() require("flash").treesitter() end,
-                desc =
-                "Flash Treesitter"
-            },
-            {
-                "r",
-                mode = "o",
-                function() require("flash").remote() end,
-                desc =
-                "Remote Flash"
-            },
-            {
-                "R",
-                mode = { "o", "x" },
-                function() require("flash").treesitter_search() end,
-                desc =
-                "Treesitter Search"
-            },
-            {
-                "<c-s>",
-                mode = { "c" },
-                function() require("flash").toggle() end,
-                desc =
-                "Toggle Flash Search"
-            },
-        },
 	},
 	{
 		"folke/which-key.nvim",
@@ -102,6 +59,7 @@ local M = {
 	bookmarks,
 	oil,
 	undotree,
+	flash,
 }
 
 return M
