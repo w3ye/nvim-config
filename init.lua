@@ -32,8 +32,8 @@ vim.opt.splitbelow = true
 
 vim.opt.scrolloff = 4
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "manual"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 20
 vim.api.nvim_create_autocmd("BufRead", {
 	callback = function()
