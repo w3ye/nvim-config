@@ -9,10 +9,23 @@ local M = {
 		},
 		config = function()
 			require("neotest").setup({
+				discovery = {
+					enabled = false,
+				},
 				adapters = {
 					require("neotest-jest")({
-						jestCommand = "yarn test -- --",
-						jestConfigFile = "custom.jest.config.ts",
+						jestCommand = "yarn test --",
+						jestConfigFile = function(file)
+							if string.find(file, "/packages/") then
+								local m = string.match(file, "(.-/[^/]+/)src") .. "jest.config.ts"
+								print(m)
+								return m
+							end
+
+							local m = vim.fn.getcwd() .. "/jest.config.ts"
+							print(m)
+							return m
+						end,
 						env = { CI = true },
 						cwd = function(path)
 							return vim.fn.getcwd()
@@ -37,6 +50,16 @@ local M = {
 				"<leader>nrr",
 				'<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>',
 				desc = "Run the whole file",
+			},
+			{
+				"<leader>nct",
+				'<cmd>lua require("neotest").run.run()<cr>',
+				desc = "Run the nearest test",
+			},
+			{
+				"<leader>ndt",
+				'<cmd>require("neotest").run.run({strategy = "dap"})<cr>',
+				desc = "Run the nearest test with dap",
 			},
 		},
 	},
