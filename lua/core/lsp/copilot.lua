@@ -62,6 +62,9 @@ local M = {
 				server_opts_overrides = {},
 			})
 		end,
+		keys = {
+			{ "<leader>cp", "<cmd>Copilot panel<cr>", desc = "Open copilot panel", mode = "n" },
+		},
 	},
 }
 
