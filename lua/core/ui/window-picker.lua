@@ -2,15 +2,16 @@ local M = {
 	"s1n7ax/nvim-window-picker",
 	name = "window-picker",
 	version = "v2.*",
-	config = function()
-		require("window-picker").setup({
-			hint = "floating-big-letter",
-			prompt_message = "",
-			filter_rules = {
-				bo = { filetype = { "prompt" } },
-			},
-		})
+	config = function(_, opts)
+		require("window-picker").setup(opts)
 	end,
+	opts = {
+		hint = "floating-big-letter",
+		prompt_message = "",
+		filter_rules = {
+			bo = { filetype = { "prompt" } },
+		},
+	},
 	keys = {
 		{
 			"<leader>p",
