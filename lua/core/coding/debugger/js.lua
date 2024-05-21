@@ -1,7 +1,7 @@
 local M = {}
 
-M.adapter_setup = function()
-	require("dap").adapters["pwa-node"] = {
+M.adapter_setup = function(dap)
+	dap.adapters["pwa-node"] = {
 		type = "server",
 		host = "localhost",
 		port = "${port}",

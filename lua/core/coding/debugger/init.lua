@@ -16,7 +16,8 @@ local M = {
 		"mfussenegger/nvim-dap",
 		lazy = true,
 		config = function()
-			js.adapter_setup()
+			local dap = require("dap")
+			js.adapter_setup(dap)
 		end,
 		enabled = enabled,
 		keys = {
