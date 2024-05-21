@@ -23,14 +23,6 @@ local routes = {
 		},
 		opts = { skip = true },
 	},
-	{
-		filter = {
-			event = "msg_show",
-			kind = "",
-			find = "second ago",
-		},
-		opts = { skip = true },
-	},
 }
 
 local M = {
