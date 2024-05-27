@@ -217,14 +217,14 @@ local neotree_setup = function()
 					["os"] = { "order_by_size", nowait = false },
 					["ot"] = { "order_by_type", nowait = false },
 				},
-				fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+				fuzzy_finder_mappings = {
+					-- define keymaps for filter popup window in fuzzy_finder_mode
 					["<down>"] = "move_cursor_down",
 					["<C-j>"] = "move_cursor_down",
 					["<up>"] = "move_cursor_up",
 					["<C-k>"] = "move_cursor_up",
 				},
 			},
-
 			commands = {}, -- Add a custom command or override a global one using the same function name
 		},
 		buffers = {
@@ -276,6 +276,7 @@ end
 
 local M = {
 	"nvim-neo-tree/neo-tree.nvim",
+	enabled = false,
 	version = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
