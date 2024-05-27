@@ -64,13 +64,12 @@ local telescope_setup = function()
 				override_file_sorter = true,
 				case_mode = "smart_case",
 			},
-			project = {},
 		},
 	})
 
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
-	-- require("telescope").load_extension("project")
+	require("telescope").load_extension("projects")
 	require("telescope").load_extension("bookmarks")
 end
 
@@ -87,7 +86,7 @@ local telescope_keys = {
 		"<leader>fm",
 		"<cmd>lua require('telescope').extensions.bookmarks.list(require('telescope.themes').get_ivy())<cr>",
 	},
-	{ "<C-p>", "<cmd>Telescope project<cr>" },
+	{ "<C-p>", "<cmd>Telescope projects<cr>" },
 }
 
 local M = {
@@ -107,7 +106,6 @@ local M = {
 			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		},
 		{ "nvim-telescope/telescope-live-grep-args.nvim", enabled = enabled },
-		{ "nvim-telescope/telescope-project.nvim", enabled = false },
 	},
 }
 

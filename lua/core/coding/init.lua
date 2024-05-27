@@ -12,6 +12,7 @@ local treesitter = require("core.coding.treesitter")
 local telescope = require("core.coding.telescope")
 local dropbar = require("core.coding.breadcrumbs")
 local test = require("core.coding.test")
+local project = require("core.coding.project")
 
 local M = {
 	autopairs,
@@ -53,6 +54,7 @@ local M = {
 	telescope,
 	dropbar,
 	test,
+	project,
 }
 
 return M
