@@ -9,6 +9,7 @@ local notify = require("core.ui.notify")
 local barbar = require("core.ui.barbar")
 local neotree = require("core.ui.neotree")
 local window_picker = require("core.ui.window-picker")
+local twilight = require("core.ui.twilight")
 
 local M = {
 	themes,
@@ -24,6 +25,7 @@ local M = {
 	notify,
 	barbar,
 	neotree,
+	twilight,
 }
 
 return M
