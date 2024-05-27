@@ -34,6 +34,12 @@ local M = {
 						key = "t",
 						action = "Telescope",
 					},
+					{
+						icon = " ",
+						desc = "Projects",
+						key = "p",
+						action = "Telescope projects",
+					},
 				},
 				footer = {}, --your footer
 			},
