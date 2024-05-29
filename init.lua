@@ -31,8 +31,14 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.scrolloff = 4
-vim.diagnostic.config({
-	virtual_text = false,
+
+vim.api.nvim_create_autocmd("BufWrite", {
+	callback = function()
+		vim.diagnostic.config({
+			virtual_text = false,
+			update_in_insert = false,
+		})
+	end,
 })
 
 vim.opt.foldmethod = "manual"
@@ -83,6 +89,9 @@ vim.opt.list = true
 vim.cmd("set nolist")
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+vim.diagnostic.config({
+	virtual_text = false,
+})
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
