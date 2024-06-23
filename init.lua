@@ -40,6 +40,14 @@ vim.api.nvim_create_autocmd("BufWrite", {
 		})
 	end,
 })
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.diagnostic.config({
+			virtual_text = false,
+			update_in_insert = false,
+		})
+	end,
+})
 
 vim.opt.foldmethod = "manual"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
