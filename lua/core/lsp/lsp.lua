@@ -1,23 +1,24 @@
--- local function organize_imports()
--- 	local params = {
--- 		command = "_typescript.organizeImports",
--- 		arguments = { vim.api.nvim_buf_get_name(0) },
--- 		title = "",
--- 	}
--- 	vim.lsp.buf.execute_command(params)
--- end
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = "",
+	}
+	vim.lsp.buf.execute_command(params)
+end
 
 local handlers_setup = function()
 	-- Setup language servers.
 	local lspconfig = require("lspconfig")
+	require("mason-lspconfig").setup()
 	local handlers = {
 		-- The first entry (without a key) will be the default handler
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
 		function(server_name) -- default handler (optional)
-			if server_name ~= "tsserver" then
-				require("lspconfig")[server_name].setup({})
-			end
+			-- if server_name ~= "tsserver" then
+			require("lspconfig")[server_name].setup({})
+			-- end
 		end,
 		-- Next, you can provide targeted overrides for specific servers.
 		["lua_ls"] = function()
@@ -31,10 +32,10 @@ local handlers_setup = function()
 				},
 			})
 		end,
-		["tsserver"] = function()
-			lspconfig.eslint.setup({})
-			return { enabled = false }
-		end,
+		-- ["tsserver"] = function()
+		-- 	lspconfig.eslint.setup({})
+		-- 	return { enabled = false }
+		-- end,
 		-- ["tsserver"] = function()
 		-- 	lspconfig.tsserver.setup({
 		-- 		single_file_support = false,

@@ -79,6 +79,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	command = "set fo-=cro",
 })
 
+vim.api.nvim_create_autocmd("VimLeave", {
+	callback = function()
+		vim.api.command("LspStop")
+	end,
+})
+
 -- vim.api.nvim_create_autocmd("BufReadPost", {
 -- 	pattern = "*.handlebars",
 -- 	command = "set filetype=handlebars syntax=mustache",
@@ -93,6 +99,7 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 for type, icon in pairs(signs) do
+	vim.diagnostic.config({ virtual_text = false })
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end

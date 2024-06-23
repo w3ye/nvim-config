@@ -43,7 +43,7 @@ local M = {
 			{ "<leader>nr", '<cmd>lua require("neotest").run.run()', desc = "Run closest test" },
 			{
 				"<leader>nra",
-				'<cmd>lua require("neotest").run.attach()',
+				'<cmd>lua require("neotest").run.attach()<cr>',
 				desc = "Attach closest test",
 			},
 			{
