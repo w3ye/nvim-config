@@ -2,7 +2,7 @@ local enabled = _G.enabled.telescope
 
 local telescope_setup = function()
 	local actions = require("telescope.actions")
-	local trouble = require("trouble.providers.telescope")
+	local trouble = require("trouble.sources.telescope")
 	local lga_actions = require("telescope-live-grep-args.actions")
 
 	require("telescope").setup({
@@ -21,14 +21,14 @@ local telescope_setup = function()
 				i = {
 					["<C-j>"] = actions.move_selection_next,
 					["<C-k>"] = actions.move_selection_previous,
-					["<C-t>"] = trouble.open_with_trouble,
+					["<C-t>"] = trouble.open,
 					["<M-d>"] = actions.delete_buffer,
 					["<C-u>"] = false,
 					["<C-p>"] = actions.results_scrolling_up,
 					["<C-n>"] = actions.results_scrolling_down,
 				},
 				n = {
-					["<C-t>"] = trouble.open_with_trouble,
+					["<C-t>"] = trouble.open,
 					["<C-d>"] = actions.delete_buffer,
 					["<C-h>"] = actions.results_scrolling_up,
 					["<C-l>"] = actions.results_scrolling_down,

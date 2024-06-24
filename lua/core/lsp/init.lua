@@ -4,6 +4,7 @@ local cmp = require("core.lsp.cmp")
 local snippet = require("core.lsp.snippet")
 local copilot = require("core.lsp.copilot")
 local tstools = require("core.lsp.tstools")
+local supermaven = require("core.lsp.supermaven")
 
 local M = {
 	mason,
@@ -13,6 +14,7 @@ local M = {
 	cmp,
 	snippet,
 	copilot,
+	supermaven,
 }
 
 return M

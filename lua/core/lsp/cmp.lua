@@ -21,6 +21,7 @@ local M = {
 			cmp.setup({
 				sources = cmp.config.sources({
 					{ name = "copilot" },
+					{ name = "supermaven" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "nvim_lua" },
 					{
@@ -71,6 +72,7 @@ local M = {
 						mode = "symbol_text",
 						maxwidth = 50,
 						menu = {
+							Supermaven = "",
 							copilot = "",
 							bufeer = "[buffer]",
 							nvim_lsp = "[lsp]",
