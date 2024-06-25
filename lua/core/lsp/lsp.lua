@@ -32,10 +32,9 @@ local handlers_setup = function()
 				},
 			})
 		end,
-		-- ["tsserver"] = function()
-		-- 	lspconfig.eslint.setup({})
-		-- 	return { enabled = false }
-		-- end,
+		["tsserver"] = function()
+			return { enabled = false }
+		end,
 		-- ["tsserver"] = function()
 		-- 	lspconfig.tsserver.setup({
 		-- 		single_file_support = false,

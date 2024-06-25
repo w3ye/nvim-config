@@ -69,15 +69,15 @@ local M = {
 				formatting = {
 					expandable_indicator = true,
 					format = lspkind.cmp_format({
-						mode = "symbol_text",
+						mode = "symbol",
 						maxwidth = 50,
 						menu = {
 							Supermaven = "",
 							copilot = "",
-							bufeer = "[buffer]",
-							nvim_lsp = "[lsp]",
-							nvim_lua = "[lua api]",
-							luasnip = "[snip]",
+							buffer = "",
+							-- nvim_lsp = "[lsp]",
+							-- nvim_lua = "[lua api]",
+							luasnip = "",
 						},
 					}),
 				},

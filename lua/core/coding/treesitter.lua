@@ -19,7 +19,7 @@ local treesitter_setup = function()
 		auto_install = true,
 		sync_install = true,
 		highlight = {
-			enable = true,
+			enable = false,
 			additional_vim_regex_highlighting = false,
 		},
 		indent = {
