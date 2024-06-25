@@ -36,9 +36,9 @@ local M = {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = bubbles_theme,
+				-- theme = bubbles_theme,
 				component_separators = "|",
-				section_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = { "NvimTree", "packer", "dap" },
 					winbar = { "NvimTree", "packer", "dap" },
@@ -46,14 +46,20 @@ local M = {
 			},
 			sections = {
 				lualine_a = {
-					{ "mode", separator = { left = "" }, right_padding = 2 },
+					{
+						"mode", --[[ separator = { left = "" }, ]]
+						right_padding = 2,
+					},
 				},
 				lualine_b = { { "filename", path = 1, symbols = { modified = " ●" } }, "branch" },
 				lualine_c = { "diagnostics", "fileformat" },
 				lualine_x = {},
 				lualine_y = { "filetype", "progress" },
 				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+					{
+						"location", --[[ separator = { right = "" }, ]]
+						left_padding = 2,
+					},
 				},
 			},
 			inactive_sections = {
