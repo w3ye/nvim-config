@@ -9,6 +9,22 @@ local routes = {
 	},
 	{
 		filter = {
+			event = "msg_show.echo",
+			kind = "",
+			find = "change",
+		},
+		opts = { skip = true },
+	},
+	{
+		filter = {
+			event = "msg_show",
+			kind = "",
+			find = "[supermaven-nvim]",
+		},
+		opts = { skip = true },
+	},
+	{
+		filter = {
 			event = "msg_show",
 			kind = "",
 			find = "lines",
