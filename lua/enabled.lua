@@ -41,7 +41,7 @@ local M = {
 	-- lsp
 	cmp = true,
 	lsp = true,
-    tstools = true
+	tstools = true,
 }
 
 return M
