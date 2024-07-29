@@ -87,11 +87,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	command = "set fo-=cro",
 })
 
-vim.api.nvim_create_autocmd("VimLeave", {
-	callback = function()
-		vim.api.command("LspStop")
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimLeave", {
+-- 	callback = function()
+-- 		vim.api.command("LspStop")
+-- 	end,
+-- })
 
 -- vim.api.nvim_create_autocmd("BufReadPost", {
 -- 	pattern = "*.handlebars",

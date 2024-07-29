@@ -1,6 +1,7 @@
 local M = {
 	{
 		"supermaven-inc/supermaven-nvim",
+        enabled = _G.enabled.supermaven,
 		config = function(_, opts)
 			require("supermaven-nvim").setup(opts)
 		end,

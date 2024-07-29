@@ -12,17 +12,19 @@ local M = {
 	{
 		"microsoft/vscode-js-debug",
 		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+        	enabled = enabled.dap,
 	},
 	{ "leoluz/nvim-dap-go" },
 	{
 		"mfussenegger/nvim-dap",
 		lazy = true,
+        enabled = enabled.dap,
 		config = function()
 			local dap = require("dap")
 			js.adapter_setup(dap)
 			go.setup(dap)
 		end,
-		enabled = enabled,
+		enabled = enabled.dap,
 		keys = {
 			{ "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
 			{ "<leader>bc", conditional_breakpoint, desc = "Conditional breakpoint" },
